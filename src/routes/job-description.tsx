@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { SectionHeader, PrimaryButton, GhostButton, Tag } from "@/components/ui-kit";
 import { ClipboardPaste, Sparkles, FileText, Briefcase, Brain, Activity } from "lucide-react";
-import { sampleJD } from "@/lib/dummy-data";
-import { useState } from "react";
+import { fetchJobDescription } from "@/lib/api";
+import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/job-description")({
   head: () => ({ meta: [{ title: "Job Description — HireSense AI" }] }),
@@ -11,8 +12,19 @@ export const Route = createFileRoute("/job-description")({
 });
 
 function JDPage() {
-  const [jd, setJd] = useState(sampleJD);
+  const { data: fetchedJD } = useQuery({
+    queryKey: ['job-description'],
+    queryFn: fetchJobDescription,
+  });
+  
+  const [jd, setJd] = useState("");
   const limit = 5000;
+
+  useEffect(() => {
+    if (fetchedJD) {
+      setJd(fetchedJD);
+    }
+  }, [fetchedJD]);
 
   return (
     <AppLayout>

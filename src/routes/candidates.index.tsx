@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { SectionHeader, PrimaryButton, GhostButton, Tag } from "@/components/ui-kit";
 import { UploadCloud, FileText, CheckCircle2, Loader2, Clock, Trash2, Users } from "lucide-react";
-import { uploads } from "@/lib/dummy-data";
 import { useState } from "react";
 
 export const Route = createFileRoute("/candidates/")({
@@ -12,6 +11,9 @@ export const Route = createFileRoute("/candidates/")({
 
 function CandidatesPage() {
   const [drag, setDrag] = useState(false);
+  // Note: This is a placeholder UI for candidate upload functionality
+  // In production, this would integrate with actual file upload and processing
+  const uploads: Array<{ name: string; size: string; status: string; time: string }> = [];
 
   return (
     <AppLayout>
@@ -29,10 +31,10 @@ function CandidatesPage() {
       {/* Stats strip */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         {[
-          { l: "Total uploaded", v: uploads.length, c: "text-foreground" },
-          { l: "Parsed", v: uploads.filter((u) => u.status === "Parsed").length, c: "text-emerald-400" },
-          { l: "Processing", v: uploads.filter((u) => u.status === "Processing").length, c: "text-accent" },
-          { l: "Queued", v: uploads.filter((u) => u.status === "Queued").length, c: "text-amber-glow" },
+          { l: "Total uploaded", v: 0, c: "text-foreground" },
+          { l: "Parsed", v: 0, c: "text-emerald-400" },
+          { l: "Processing", v: 0, c: "text-accent" },
+          { l: "Queued", v: 0, c: "text-amber-glow" },
         ].map((s) => (
           <div key={s.l} className="rounded-xl border border-border bg-card px-4 py-3">
             <div className="text-xs text-muted-foreground">{s.l}</div>
@@ -72,7 +74,7 @@ function CandidatesPage() {
         <div className="px-5 py-4 border-b border-border flex items-center justify-between">
           <div>
             <h3 className="font-display font-bold">Upload status</h3>
-            <p className="text-xs text-muted-foreground">{uploads.length} files in this batch</p>
+            <p className="text-xs text-muted-foreground">No files uploaded yet</p>
           </div>
         </div>
         <div className="overflow-x-auto">
@@ -87,28 +89,36 @@ function CandidatesPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {uploads.map((u, i) => (
-                <tr key={i} className="hover:bg-surface-2/40 transition">
-                  <td className="px-5 py-3.5">
-                    <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-lg bg-surface-2 grid place-items-center">
-                        <FileText className="h-4 w-4 text-accent" />
-                      </div>
-                      <span className="font-medium">{u.name}</span>
-                    </div>
-                  </td>
-                  <td className="px-5 py-3.5 text-muted-foreground tabular-nums">{u.size}</td>
-                  <td className="px-5 py-3.5">
-                    {u.status === "Parsed" && <Tag tone="ember"><CheckCircle2 className="h-3 w-3" /> Parsed</Tag>}
-                    {u.status === "Processing" && <Tag tone="flame"><Loader2 className="h-3 w-3 animate-spin" /> Processing</Tag>}
-                    {u.status === "Queued" && <Tag tone="amber"><Clock className="h-3 w-3" /> Queued</Tag>}
-                  </td>
-                  <td className="px-5 py-3.5 text-muted-foreground">{u.time}</td>
-                  <td className="px-5 py-3.5 text-right">
-                    <button className="text-muted-foreground hover:text-primary transition"><Trash2 className="h-4 w-4" /></button>
+              {uploads.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="px-5 py-12 text-center text-muted-foreground">
+                    No files uploaded yet. Drop files above to get started.
                   </td>
                 </tr>
-              ))}
+              ) : (
+                uploads.map((u, i) => (
+                  <tr key={i} className="hover:bg-surface-2/40 transition">
+                    <td className="px-5 py-3.5">
+                      <div className="flex items-center gap-3">
+                        <div className="h-9 w-9 rounded-lg bg-surface-2 grid place-items-center">
+                          <FileText className="h-4 w-4 text-accent" />
+                        </div>
+                        <span className="font-medium">{u.name}</span>
+                      </div>
+                    </td>
+                    <td className="px-5 py-3.5 text-muted-foreground tabular-nums">{u.size}</td>
+                    <td className="px-5 py-3.5">
+                      {u.status === "Parsed" && <Tag tone="ember"><CheckCircle2 className="h-3 w-3" /> Parsed</Tag>}
+                      {u.status === "Processing" && <Tag tone="flame"><Loader2 className="h-3 w-3 animate-spin" /> Processing</Tag>}
+                      {u.status === "Queued" && <Tag tone="amber"><Clock className="h-3 w-3" /> Queued</Tag>}
+                    </td>
+                    <td className="px-5 py-3.5 text-muted-foreground">{u.time}</td>
+                    <td className="px-5 py-3.5 text-right">
+                      <button className="text-muted-foreground hover:text-primary transition"><Trash2 className="h-4 w-4" /></button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

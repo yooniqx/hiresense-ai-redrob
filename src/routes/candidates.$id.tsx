@@ -1,15 +1,18 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { ScoreBadge, ScoreBar, Tag, GhostButton, PrimaryButton, SectionHeader } from "@/components/ui-kit";
-import { candidates, type Candidate } from "@/lib/dummy-data";
+import { fetchCandidate, type Candidate } from "@/lib/api";
 import { ArrowLeft, Mail, MapPin, Briefcase, GraduationCap, Brain, Sparkles, FileText, ThumbsUp, AlertTriangle, Download, Send } from "lucide-react";
 
 export const Route = createFileRoute("/candidates/$id")({
   head: ({ params }) => ({ meta: [{ title: `Candidate — HireSense AI` }, { name: "description", content: `Profile for candidate ${params.id}` }] }),
-  loader: ({ params }) => {
-    const c = candidates.find((x) => x.id === params.id);
-    if (!c) throw notFound();
-    return c;
+  loader: async ({ params }) => {
+    try {
+      const c = await fetchCandidate(params.id);
+      return c;
+    } catch (error) {
+      throw notFound();
+    }
   },
   component: CandidateDetails,
   notFoundComponent: () => (
