@@ -123,7 +123,7 @@ export default function JobDescription() {
             </h3>
             
             <div className="space-y-4">
-              {jobDesc.requirements?.required_skills && jobDesc.requirements.required_skills.length > 0 && (
+              {jobDesc.requirements && jobDesc.requirements.required_skills && jobDesc.requirements.required_skills.length > 0 ? (
                 <div>
                   <h4 className="text-sm font-semibold mb-2">Required Skills</h4>
                   <div className="flex flex-wrap gap-2">
@@ -134,14 +134,16 @@ export default function JobDescription() {
                     ))}
                   </div>
                 </div>
+              ) : (
+                <div className="text-sm text-muted-foreground">No required skills specified</div>
               )}
 
-              {jobDesc.requirements?.preferred_skills && jobDesc.requirements.preferred_skills.length > 0 && (
+              {jobDesc.requirements && jobDesc.requirements.preferred_skills && jobDesc.requirements.preferred_skills.length > 0 && (
                 <div>
                   <h4 className="text-sm font-semibold mb-2">Preferred Skills</h4>
                   <div className="flex flex-wrap gap-2">
                     {jobDesc.requirements.preferred_skills.map((skill, idx) => (
-                      <span key={idx} className="px-2 py-1 rounded-md bg-surface-2 text-muted-foreground text-xs">
+                      <span key={idx} className="px-2 py-1 rounded-md bg-surface-2 text-foreground text-xs border border-border">
                         {skill}
                       </span>
                     ))}
@@ -149,16 +151,16 @@ export default function JobDescription() {
                 </div>
               )}
 
-              {jobDesc.requirements?.min_experience && (
+              {jobDesc.requirements && jobDesc.requirements.min_experience ? (
                 <div>
                   <h4 className="text-sm font-semibold mb-2">Experience</h4>
                   <p className="text-sm text-muted-foreground">
                     Minimum {jobDesc.requirements.min_experience} years
                   </p>
                 </div>
-              )}
+              ) : null}
 
-              {jobDesc.requirements?.education && jobDesc.requirements.education.length > 0 && (
+              {jobDesc.requirements && jobDesc.requirements.education && jobDesc.requirements.education.length > 0 && (
                 <div>
                   <h4 className="text-sm font-semibold mb-2">Education</h4>
                   <ul className="space-y-1">

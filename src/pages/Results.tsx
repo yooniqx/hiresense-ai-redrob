@@ -96,10 +96,10 @@ export default function Results() {
               >
                 <div className="flex items-center gap-4">
                   {/* Rank */}
-                  <div className={`h-12 w-12 rounded-full grid place-items-center shrink-0 ${
-                    isTopThree 
-                      ? 'gradient-ember text-white font-bold' 
-                      : 'bg-surface-2 text-muted-foreground'
+                  <div className={`h-12 w-12 rounded-full grid place-items-center shrink-0 font-semibold ${
+                    isTopThree
+                      ? 'gradient-ember text-white'
+                      : 'bg-surface-2 text-foreground border border-border'
                   }`}>
                     {getRankIcon(rank) || `#${rank}`}
                   </div>
