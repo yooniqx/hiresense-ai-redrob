@@ -99,7 +99,7 @@ export default function Results() {
                   <div className={`h-12 w-12 rounded-full grid place-items-center shrink-0 font-semibold ${
                     isTopThree
                       ? 'gradient-ember text-white'
-                      : 'bg-surface-2 text-foreground border border-border'
+                      : 'bg-accent/20 text-white border border-accent/40'
                   }`}>
                     {getRankIcon(rank) || `#${rank}`}
                   </div>
