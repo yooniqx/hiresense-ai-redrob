@@ -285,7 +285,7 @@ def get_activity():
             activity.append({
                 "who": c["candidate"]["profile"].get("anonymized_name", "Unknown"),
                 "action": f"ranked #{idx + 1} for",
-                "role": "Senior AI Engineer",
+                "role": config.JOB_TITLE,
                 "time": f"{idx * 2}m ago",
                 "score": int(c["score"] * 100)
             })
@@ -301,22 +301,39 @@ def get_activity():
 def get_job_description():
     """Get job description"""
     try:
-        jd = """We're hiring a Senior Machine Learning Engineer to lead the development of our production LLM-powered features. You'll work across the stack — from training and fine-tuning models to deploying low-latency inference at scale.
-
-Requirements:
-• 5+ years of ML engineering experience
-• Deep expertise in PyTorch or JAX
-• Production LLM experience (RAG, fine-tuning, evals)
-• Strong Python and distributed systems background
-• Experience with MLOps tooling (Weights & Biases, MLflow)
-• Excellent written communication (we're remote-first)
-
-Nice to have:
-• Open-source contributions
-• Experience mentoring junior engineers
-• Background in reinforcement learning or RLHF"""
+        job_desc = {
+            "title": config.JOB_TITLE,
+            "department": "Engineering",
+            "location": "Remote / Hybrid",
+            "type": "Full-time",
+            "description": "We're hiring a Senior Machine Learning Engineer to lead the development of our production LLM-powered features. You'll work across the stack — from training and fine-tuning models to deploying low-latency inference at scale.",
+            "responsibilities": [
+                "Lead development of production LLM-powered features",
+                "Train and fine-tune machine learning models",
+                "Deploy low-latency inference systems at scale",
+                "Work with distributed systems and MLOps tooling",
+                "Collaborate with cross-functional teams",
+                "Mentor junior engineers and contribute to technical documentation"
+            ],
+            "requirements": {
+                "required_skills": config.REQUIRED_SKILLS[:10],
+                "preferred_skills": config.NICE_TO_HAVE_SKILLS,
+                "min_experience": config.MIN_EXPERIENCE,
+                "education": [
+                    "Bachelor's or Master's degree in Computer Science, Engineering, or related field",
+                    "PhD preferred but not required"
+                ]
+            },
+            "benefits": [
+                "Competitive salary and equity",
+                "Remote-first work environment",
+                "Health insurance and wellness benefits",
+                "Professional development budget",
+                "Flexible working hours"
+            ]
+        }
         
-        return jsonify({"description": jd})
+        return jsonify(job_desc)
     
     except Exception as e:
         logger.error(f"Error in job description endpoint: {e}")

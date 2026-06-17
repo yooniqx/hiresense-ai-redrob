@@ -139,17 +139,20 @@ export function PrimaryButton({
   onClick,
   icon,
   type = "button",
+  disabled = false,
 }: {
   children: ReactNode;
   onClick?: () => void;
   icon?: ReactNode;
   type?: "button" | "submit";
+  disabled?: boolean;
 }) {
   return (
     <button
       type={type}
       onClick={onClick}
-      className="inline-flex items-center gap-2 h-10 px-4 rounded-lg gradient-ember text-white font-medium text-sm glow-ember hover:scale-[1.02] active:scale-[0.98] transition"
+      disabled={disabled}
+      className="inline-flex items-center gap-2 h-10 px-4 rounded-lg gradient-ember text-white font-medium text-sm glow-ember hover:scale-[1.02] active:scale-[0.98] transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
     >
       {icon}
       {children}

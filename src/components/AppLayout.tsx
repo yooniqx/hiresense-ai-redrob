@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import {
   LayoutDashboard,
-  Upload,
+  Users,
   FileText,
   Trophy,
   BarChart3,
@@ -13,18 +14,27 @@ import {
 
 const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/candidates", label: "Candidates", icon: Upload },
+  { to: "/candidates", label: "Candidates", icon: Users },
   { to: "/job-description", label: "Job Description", icon: FileText },
   { to: "/results", label: "Ranking Results", icon: Trophy },
   { to: "/analytics", label: "Analytics", icon: BarChart3 },
 ] as const;
 
 export function AppLayout({ children }: { children: ReactNode }) {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const location = useLocation();
+  const pathname = location.pathname;
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/candidates?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   return (
     <div className="min-h-screen w-full flex bg-background text-foreground">
-      {/* Sidebar */}
       <aside className="hidden md:flex w-64 shrink-0 flex-col border-r border-border bg-sidebar/80 backdrop-blur-xl sticky top-0 h-screen">
         <div className="px-6 py-6 border-b border-sidebar-border">
           <Link to="/" className="flex items-center gap-2.5">
@@ -40,8 +50,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
 
         <nav className="flex-1 px-3 py-5 space-y-1">
           {nav.map((item) => {
-            const active =
-              item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+            const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
             const Icon = item.icon;
             return (
               <Link
@@ -74,7 +83,6 @@ export function AppLayout({ children }: { children: ReactNode }) {
         </div>
       </aside>
 
-      {/* Main */}
       <div className="flex-1 min-w-0 flex flex-col">
         <header className="sticky top-0 z-20 h-16 border-b border-border bg-background/70 backdrop-blur-xl flex items-center gap-4 px-4 md:px-8">
           <div className="md:hidden flex items-center gap-2">
@@ -84,14 +92,16 @@ export function AppLayout({ children }: { children: ReactNode }) {
             <span className="font-display font-bold">HireSense</span>
           </div>
 
-          <div className="flex-1 max-w-md hidden sm:flex items-center gap-2 h-10 px-3.5 rounded-lg bg-surface border border-border focus-within:border-accent/50 transition">
+          <form onSubmit={handleSearch} className="flex-1 max-w-md hidden sm:flex items-center gap-2 h-10 px-3.5 rounded-lg bg-surface border border-border focus-within:border-accent/50 transition">
             <Search className="h-4 w-4 text-muted-foreground" />
             <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search candidates, roles, skills..."
               className="bg-transparent flex-1 text-sm outline-none placeholder:text-muted-foreground"
             />
             <kbd className="hidden md:inline text-[10px] px-1.5 py-0.5 rounded bg-surface-2 text-muted-foreground border border-border">⌘K</kbd>
-          </div>
+          </form>
 
           <div className="ml-auto flex items-center gap-3">
             <button className="relative h-9 w-9 grid place-items-center rounded-lg bg-surface border border-border hover:border-accent/50 transition">
@@ -100,30 +110,26 @@ export function AppLayout({ children }: { children: ReactNode }) {
             </button>
             <div className="flex items-center gap-2.5 pl-2">
               <div className="h-9 w-9 rounded-full gradient-ember grid place-items-center text-sm font-bold text-white">
-                AR
+                YF
               </div>
               <div className="hidden sm:block leading-tight">
-                <div className="text-sm font-medium">Alex Rivera</div>
+                <div className="text-sm font-medium">Yooniq Forge</div>
                 <div className="text-xs text-muted-foreground">Lead Recruiter</div>
               </div>
             </div>
           </div>
         </header>
 
-        {/* Mobile nav */}
         <nav className="md:hidden flex overflow-x-auto gap-1 px-3 py-2 border-b border-border bg-background/60">
           {nav.map((item) => {
-            const active =
-              item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+            const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
             return (
               <Link
                 key={item.to}
                 to={item.to}
                 className={[
                   "shrink-0 px-3 py-1.5 rounded-md text-xs font-medium transition",
-                  active
-                    ? "gradient-ember text-white"
-                    : "bg-surface text-muted-foreground",
+                  active ? "gradient-ember text-white" : "bg-surface text-muted-foreground",
                 ].join(" ")}
               >
                 {item.label}
@@ -137,3 +143,5 @@ export function AppLayout({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+// Made with Bob

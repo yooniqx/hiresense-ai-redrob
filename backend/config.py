@@ -27,6 +27,9 @@ SCORING_WEIGHTS = {
     "behavioral_signals": 0.10
 }
 
+# Job details
+JOB_TITLE = "Senior Machine Learning Engineer"
+
 # Job requirements (extracted from JD)
 REQUIRED_SKILLS = [
     "embeddings", "vector database", "pinecone", "weaviate", "qdrant", "milvus",

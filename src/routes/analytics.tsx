@@ -2,8 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { SectionHeader, Tag } from "@/components/ui-kit";
 import { TrendingUp, Users, Filter, Target, Sparkles, Award, BarChart3, PieChart } from "lucide-react";
-import { fetchAnalytics } from "@/lib/api";
-import { useQuery } from "@tanstack/react-query";
+import { candidates } from "@/lib/dummy-data";
 
 export const Route = createFileRoute("/analytics")({
   head: () => ({ meta: [{ title: "Analytics — HireSense AI" }] }),
@@ -11,29 +10,33 @@ export const Route = createFileRoute("/analytics")({
 });
 
 function AnalyticsPage() {
-  const { data: analytics, isLoading } = useQuery({
-    queryKey: ['analytics'],
-    queryFn: fetchAnalytics,
-  });
-
-  if (isLoading || !analytics) {
-    return (
-      <AppLayout>
-        <div className="flex items-center justify-center h-96">
-          <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-accent border-r-transparent"></div>
-            <p className="mt-4 text-muted-foreground">Loading analytics...</p>
-          </div>
-        </div>
-      </AppLayout>
-    );
-  }
-
-  const buckets = analytics.scoreDistribution;
+  // Score distribution buckets
+  const buckets = [
+    { range: "90-100", label: "Top tier", count: candidates.filter((c) => c.score >= 90).length },
+    { range: "80-89", label: "Strong", count: candidates.filter((c) => c.score >= 80 && c.score < 90).length },
+    { range: "70-79", label: "Good", count: candidates.filter((c) => c.score >= 70 && c.score < 80).length },
+    { range: "60-69", label: "Fair", count: candidates.filter((c) => c.score >= 60 && c.score < 70).length },
+    { range: "<60", label: "Below bar", count: candidates.filter((c) => c.score < 60).length },
+  ];
   const max = Math.max(...buckets.map((b) => b.count), 1);
-  const topSkills = analytics.topSkills;
-  const maxSkill = Math.max(...topSkills.map((s) => s.count), 1);
-  const funnel = analytics.funnel;
+
+  const topSkills = [
+    { name: "Python", count: 6 },
+    { name: "PyTorch", count: 4 },
+    { name: "LLMs", count: 3 },
+    { name: "TypeScript", count: 3 },
+    { name: "Distributed Systems", count: 2 },
+    { name: "MLOps", count: 2 },
+    { name: "RAG", count: 2 },
+  ];
+  const maxSkill = Math.max(...topSkills.map((s) => s.count));
+
+  const funnel = [
+    { label: "Sourced", count: 248, tone: "default" as const },
+    { label: "Parsed", count: 211, tone: "amber" as const },
+    { label: "Ranked", count: 142, tone: "flame" as const },
+    { label: "Shortlist", count: 18, tone: "ember" as const },
+  ];
 
   return (
     <AppLayout>
