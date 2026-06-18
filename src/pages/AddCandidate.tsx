@@ -82,18 +82,23 @@ export default function AddCandidate() {
     setIsSubmitting(true);
 
     try {
-      // Prepare candidate data
+      // Prepare candidate data in backend expected format
       const candidateData = {
-        name: formData.name.trim(),
-        headline: formData.headline.trim(),
-        summary: formData.summary.trim() || `${formData.headline} with ${formData.years_of_experience} years of experience`,
-        location: formData.location.trim() || 'India',
-        country: formData.country,
-        years_of_experience: parseFloat(formData.years_of_experience),
-        current_role: formData.current_title.trim() || formData.headline.trim(),
-        current_company: formData.current_company.trim() || 'Not specified',
-        company_size: formData.company_size || '1000-5000',
-        industry: formData.industry.trim() || 'Technology',
+        profile: {
+          name: formData.name.trim(),
+          headline: formData.headline.trim(),
+          summary: formData.summary.trim() || `${formData.headline} with ${formData.years_of_experience} years of experience`,
+          location: formData.location.trim() || 'India',
+          country: formData.country,
+          years_of_experience: parseFloat(formData.years_of_experience),
+          current_title: formData.current_title.trim() || formData.headline.trim(),
+          current_company: formData.current_company.trim() || 'Not specified',
+          company_size: formData.company_size || '1000-5000',
+          industry: formData.industry.trim() || 'Technology',
+          availability: formData.availability,
+          expected_ctc: 2000000,
+          notice_period_days: 30,
+        },
         skills: validSkills.map(s => ({
           name: s.name.trim(),
           proficiency: s.proficiency,
@@ -114,9 +119,14 @@ export default function AddCandidate() {
           duration_months: Math.floor(parseFloat(formData.years_of_experience) * 12),
           description: formData.summary.trim() || 'Professional experience',
         }],
-        availability: formData.availability,
-        expected_ctc: 2000000,
-        notice_period_days: 30,
+        certifications: [],
+        languages: ['English'],
+        redrob_signals: {
+          last_active_date: new Date().toISOString().split('T')[0],
+          profile_completeness: 85,
+          response_rate: 90,
+          job_search_status: 'actively_looking',
+        },
       };
 
       const result = await api.addCandidate(candidateData);
