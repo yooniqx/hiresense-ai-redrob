@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 import { AppLayout } from '@/components/AppLayout';
 import { SectionHeader, PrimaryButton, GhostButton } from '@/components/ui-kit';
 import { Input } from '@/components/ui/input';
@@ -17,6 +18,7 @@ interface Skill {
 
 export default function AddCandidate() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -132,8 +134,12 @@ export default function AddCandidate() {
       const result = await api.addCandidate(candidateData);
 
       if (result.success) {
+        // Invalidate candidates query to force refetch
+        await queryClient.invalidateQueries({ queryKey: ['candidates'] });
+        
         toast.success(
-          `Candidate Added Successfully! Score: ${result.score.toFixed(2)} | Rank: #${result.rank} of ${result.total_candidates}`
+          `Candidate Added Successfully! Score: ${result.score} | Rank: #${result.rank} of ${result.total_candidates}`,
+          { duration: 3000 }
         );
         
         // Navigate to candidates page after short delay
@@ -408,7 +414,11 @@ export default function AddCandidate() {
             >
               Cancel
             </button>
-            <PrimaryButton type="submit" disabled={isSubmitting}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="inline-flex items-center gap-2 h-10 px-6 rounded-lg gradient-ember text-white font-medium text-sm hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -420,7 +430,7 @@ export default function AddCandidate() {
                   Add Candidate
                 </>
               )}
-            </PrimaryButton>
+            </button>
           </div>
         </form>
       </div>

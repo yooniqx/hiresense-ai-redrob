@@ -23,7 +23,7 @@ export default function Candidates() {
     return candidates.filter((candidate) => {
       return (
         candidate.name.toLowerCase().includes(query) ||
-        candidate.current_role?.toLowerCase().includes(query) ||
+        candidate.title?.toLowerCase().includes(query) ||
         candidate.location?.toLowerCase().includes(query) ||
         candidate.skills.some((skill) => skill.toLowerCase().includes(query))
       );
@@ -64,8 +64,8 @@ export default function Candidates() {
         ) : (
           filteredCandidates.map((candidate) => (
           <Link
-            key={candidate.candidate_id}
-            to={`/candidates/${candidate.candidate_id}`}
+            key={candidate.id}
+            to={`/candidates/${candidate.id}`}
             className="block rounded-2xl border border-border bg-card p-6 hover:border-accent/50 transition-colors"
           >
             <div className="flex items-start justify-between gap-4">
@@ -75,7 +75,7 @@ export default function Candidates() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-display font-bold text-lg">{candidate.name}</h3>
-                  <p className="text-sm text-muted-foreground">{candidate.current_role}</p>
+                  <p className="text-sm text-muted-foreground">{candidate.title}</p>
                   
                   <div className="flex flex-wrap gap-4 mt-3 text-xs text-muted-foreground">
                     <div className="flex items-center gap-1">
@@ -83,16 +83,12 @@ export default function Candidates() {
                       {candidate.email}
                     </div>
                     <div className="flex items-center gap-1">
-                      <Phone className="h-3 w-3" />
-                      {candidate.phone}
-                    </div>
-                    <div className="flex items-center gap-1">
                       <MapPin className="h-3 w-3" />
                       {candidate.location}
                     </div>
                     <div className="flex items-center gap-1">
                       <Briefcase className="h-3 w-3" />
-                      {candidate.experience_years} years
+                      {candidate.yearsExperience} years
                     </div>
                   </div>
 
