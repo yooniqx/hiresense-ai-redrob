@@ -59,40 +59,53 @@ export default function AddCandidate() {
   };
 
   const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
-    try {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      console.log('=== FORM SUBMITTED ===');
-      console.log('Form data:', formData);
-      console.log('Skills:', skills);
-      
-      // Prevent any default form behavior
-      if (isSubmitting) {
-        console.log('Already submitting, ignoring...');
-        return false;
-      }
+    console.log('🔥 BUTTON CLICKED - VERSION 2.0 🔥');
+    
+    // MUST prevent default FIRST
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    console.log('=== FORM SUBMITTED ===');
+    console.log('Form data:', formData);
+    console.log('Skills:', skills);
+    
+    // Prevent double submission
+    if (isSubmitting) {
+      console.log('Already submitting, ignoring...');
+      return;
+    }
     
     // Validation
+    console.log('Checking name:', formData.name);
     if (!formData.name.trim()) {
+      console.log('❌ VALIDATION FAILED: No name');
       toast.error('Please enter candidate name');
       return;
     }
+    console.log('Checking headline:', formData.headline);
     if (!formData.headline.trim()) {
+      console.log('❌ VALIDATION FAILED: No headline');
       toast.error('Please enter professional headline');
       return;
     }
+    console.log('Checking experience:', formData.years_of_experience);
     if (!formData.years_of_experience) {
+      console.log('❌ VALIDATION FAILED: No experience');
       toast.error('Please enter years of experience');
       return;
     }
 
     const validSkills = skills.filter(s => s.name.trim());
+    console.log('Valid skills count:', validSkills.length, validSkills);
     if (validSkills.length < 3) {
+      console.log('❌ VALIDATION FAILED: Need at least 3 skills');
       toast.error('Please add at least 3 skills');
       return;
     }
+    
+    console.log('✅ ALL VALIDATIONS PASSED');
 
     setIsSubmitting(true);
 
@@ -147,9 +160,10 @@ export default function AddCandidate() {
       };
 
       console.log('Candidate data prepared:', candidateData);
-      console.log('Sending candidate data to API...');
+      console.log('🚀 CALLING API.ADDCANDIDATE NOW...');
       
       const result = await api.addCandidate(candidateData);
+      console.log('✅ API RESPONSE RECEIVED:', result);
       console.log('API Response:', result);
 
       if (result.success) {
@@ -181,12 +195,6 @@ export default function AddCandidate() {
     } finally {
       setIsSubmitting(false);
     }
-    } catch (topLevelError) {
-      console.error('=== TOP LEVEL ERROR ===');
-      console.error(topLevelError);
-      setIsSubmitting(false);
-      toast.error('Unexpected error occurred');
-    }
   };
 
   return (
@@ -197,7 +205,7 @@ export default function AddCandidate() {
           description="Enter candidate details to analyze and rank them using AI"
         />
 
-        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+        <form onSubmit={(e) => e.preventDefault()} className="space-y-6 mt-6">
           {/* Profile Information */}
           <div className="glass rounded-xl p-6 border border-border">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
