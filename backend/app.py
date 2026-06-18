@@ -595,6 +595,122 @@ def search_candidates():
         return jsonify({"error": str(e)}), 500
 
 
+@app.route('/api/candidates/add', methods=['POST'])
+def add_candidate():
+    """Add a new candidate and score them"""
+    try:
+        global ranked_candidates, all_candidates
+        
+        candidate_data = request.json
+        
+        if not candidate_data:
+            return jsonify({"error": "No candidate data provided"}), 400
+        
+        # Generate unique candidate ID
+        import random
+        candidate_id = f"CAND_{random.randint(1000000, 9999999)}"
+        candidate_data["candidate_id"] = candidate_id
+        
+        # Preprocess the new candidate
+        from datetime import datetime
+        
+        # Calculate days since active
+        last_active = candidate_data.get("redrob_signals", {}).get("last_active_date")
+        if last_active:
+            last_active_date = datetime.strptime(last_active, "%Y-%m-%d")
+            days_since_active = (datetime.now() - last_active_date).days
+            candidate_data["days_since_active"] = days_since_active
+        else:
+            candidate_data["days_since_active"] = 0
+        
+        # Score the new candidate
+        composite_score, score_details = ranker.scorer.calculate_composite_score(candidate_data)
+        
+        # Create ranked entry
+        rank_entry = {
+            "candidate_id": candidate_id,
+            "candidate": candidate_data,
+            "score": composite_score,
+            "score_details": score_details,
+            "rank": 0  # Will be updated after re-ranking
+        }
+        
+        # Add to all_candidates
+        all_candidates.append(candidate_data)
+        
+        # Re-rank all candidates including the new one
+        all_scored = []
+        for c in all_candidates:
+            try:
+                cid = c.get("candidate_id")
+                comp_score, details = ranker.scorer.calculate_composite_score(c)
+                all_scored.append({
+                    "candidate_id": cid,
+                    "candidate": c,
+                    "score": comp_score,
+                    "score_details": details,
+                    "rounded_score": round(comp_score, 4)
+                })
+            except Exception as e:
+                logger.error(f"Error scoring candidate {cid}: {e}")
+                continue
+        
+        # Sort and take top 100
+        all_scored.sort(key=lambda x: (-x["rounded_score"], x["candidate_id"]))
+        top_100 = all_scored[:100]
+        
+        # Update ranks and reasoning
+        new_ranked = []
+        new_candidate_rank = None
+        for rank, item in enumerate(top_100, start=1):
+            reasoning = ranker.generate_reasoning(
+                item["candidate"],
+                item["score_details"],
+                rank
+            )
+            
+            entry = {
+                "rank": rank,
+                "candidate_id": item["candidate_id"],
+                "score": item["score"],
+                "reasoning": reasoning,
+                "candidate": item["candidate"],
+                "score_details": item["score_details"]
+            }
+            
+            new_ranked.append(entry)
+            
+            if item["candidate_id"] == candidate_id:
+                new_candidate_rank = rank
+        
+        # Update global ranked_candidates
+        ranked_candidates = new_ranked
+        
+        # Save updated rankings
+        ranker.ranked_candidates = ranked_candidates
+        ranker.save_submission_csv(config.RANKED_OUTPUT_FILE)
+        
+        # Return result
+        result = {
+            "success": True,
+            "candidate_id": candidate_id,
+            "score": int(composite_score * 100),
+            "rank": new_candidate_rank,
+            "total_candidates": len(all_candidates),
+            "message": f"Candidate added and ranked #{new_candidate_rank} out of {len(all_candidates)} candidates"
+        }
+        
+        logger.info(f"New candidate {candidate_id} added with score {composite_score:.4f}, rank #{new_candidate_rank}")
+        
+        return jsonify(result)
+    
+    except Exception as e:
+        logger.error(f"Error adding candidate: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
 if __name__ == '__main__':
     # Initialize system on startup
     initialize_system()

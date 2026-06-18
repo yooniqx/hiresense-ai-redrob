@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { SectionHeader, Tag } from "@/components/ui-kit";
 import { TrendingUp, Users, Filter, Target, Sparkles, Award, BarChart3, PieChart } from "lucide-react";
-import { candidates } from "@/lib/dummy-data";
+import { useQuery } from "@tanstack/react-query";
+import { api, Analytics } from "@/lib/api";
 
 export const Route = createFileRoute("/analytics")({
   head: () => ({ meta: [{ title: "Analytics — HireSense AI" }] }),
@@ -10,39 +11,37 @@ export const Route = createFileRoute("/analytics")({
 });
 
 function AnalyticsPage() {
-  // Score distribution buckets
-  const buckets = [
-    { range: "90-100", label: "Top tier", count: candidates.filter((c) => c.score >= 90).length },
-    { range: "80-89", label: "Strong", count: candidates.filter((c) => c.score >= 80 && c.score < 90).length },
-    { range: "70-79", label: "Good", count: candidates.filter((c) => c.score >= 70 && c.score < 80).length },
-    { range: "60-69", label: "Fair", count: candidates.filter((c) => c.score >= 60 && c.score < 70).length },
-    { range: "<60", label: "Below bar", count: candidates.filter((c) => c.score < 60).length },
-  ];
+  const { data: analyticsData, isLoading } = useQuery<Analytics>({
+    queryKey: ['analytics'],
+    queryFn: api.getAnalytics,
+  });
+
+  if (isLoading || !analyticsData) {
+    return (
+      <AppLayout>
+        <div className="flex items-center justify-center h-96">
+          <div className="text-center">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-accent border-r-transparent"></div>
+            <p className="mt-4 text-muted-foreground">Loading analytics...</p>
+          </div>
+        </div>
+      </AppLayout>
+    );
+  }
+
+  const buckets = analyticsData.scoreDistribution;
   const max = Math.max(...buckets.map((b) => b.count), 1);
 
-  const topSkills = [
-    { name: "Python", count: 6 },
-    { name: "PyTorch", count: 4 },
-    { name: "LLMs", count: 3 },
-    { name: "TypeScript", count: 3 },
-    { name: "Distributed Systems", count: 2 },
-    { name: "MLOps", count: 2 },
-    { name: "RAG", count: 2 },
-  ];
-  const maxSkill = Math.max(...topSkills.map((s) => s.count));
+  const topSkills = analyticsData.topSkills.slice(0, 7);
+  const maxSkill = Math.max(...topSkills.map((s) => s.count), 1);
 
-  const funnel = [
-    { label: "Sourced", count: 248, tone: "default" as const },
-    { label: "Parsed", count: 211, tone: "amber" as const },
-    { label: "Ranked", count: 142, tone: "flame" as const },
-    { label: "Shortlist", count: 18, tone: "ember" as const },
-  ];
+  const funnel = analyticsData.funnel;
 
   return (
     <AppLayout>
       <SectionHeader
-        title="Analytics"
-        description="Patterns and signals across your candidate pool"
+        title="Analytics Dashboard"
+        description="Insights from candidate data"
       />
 
       {/* Funnel */}
@@ -73,7 +72,7 @@ function AnalyticsPage() {
                 <BarChart3 className="h-4 w-4" />
               </div>
               <div>
-                <h3 className="font-display font-bold">Score distribution</h3>
+                <h3 className="font-display font-bold">Score Distribution</h3>
                 <p className="text-xs text-muted-foreground">Match score buckets across pool</p>
               </div>
             </div>
@@ -103,8 +102,8 @@ function AnalyticsPage() {
                 <PieChart className="h-4 w-4" />
               </div>
               <div>
-                <h3 className="font-display font-bold">Top matched skills</h3>
-                <p className="text-xs text-muted-foreground">Most common across high-scoring candidates</p>
+                <h3 className="font-display font-bold">Top Skills Distribution</h3>
+                <p className="text-xs text-muted-foreground">Most common across ranked candidates</p>
               </div>
             </div>
           </div>
@@ -127,7 +126,7 @@ function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Insights */}
+      {/* AI Insights */}
       <h3 className="font-display text-lg font-bold mb-3">AI Insights</h3>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
@@ -165,7 +164,7 @@ function AnalyticsPage() {
             icon: <Sparkles className="h-4 w-4" />,
             tone: "amber",
             title: "Top match identified",
-            body: "Maya Chen leads the pool at 96%. Recommended next action: outreach within 24h.",
+            body: `${funnel[3].count} candidates in shortlist with scores above 85%. Recommended next action: outreach within 24h.`,
           },
         ].map((card) => (
           <InsightCard key={card.title} {...card} />
@@ -186,3 +185,5 @@ function InsightCard({ icon, title, body, tone }: { icon: React.ReactNode; title
     </div>
   );
 }
+
+// Made with Bob

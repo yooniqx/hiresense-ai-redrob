@@ -4,17 +4,19 @@ import { useState } from "react";
 import {
   LayoutDashboard,
   Users,
+  UserPlus,
   FileText,
   Trophy,
   BarChart3,
   Sparkles,
-  Bell,
   Search,
 } from "lucide-react";
+import { SupportChat } from "./SupportChat";
 
 const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
   { to: "/candidates", label: "Candidates", icon: Users },
+  { to: "/add-candidate", label: "Add Candidate", icon: UserPlus },
   { to: "/job-description", label: "Job Description", icon: FileText },
   { to: "/results", label: "Ranking Results", icon: Trophy },
   { to: "/analytics", label: "Analytics", icon: BarChart3 },
@@ -93,28 +95,30 @@ export function AppLayout({ children }: { children: ReactNode }) {
           </div>
 
           <form onSubmit={handleSearch} className="flex-1 max-w-md hidden sm:flex items-center gap-2 h-10 px-3.5 rounded-lg bg-surface border border-border focus-within:border-accent/50 transition">
-            <Search className="h-4 w-4 text-muted-foreground" />
+            <button
+              type="submit"
+              className="shrink-0 hover:text-accent transition"
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4 text-muted-foreground hover:text-accent transition" />
+            </button>
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search candidates, roles, skills..."
               className="bg-transparent flex-1 text-sm outline-none placeholder:text-muted-foreground"
             />
-            <kbd className="hidden md:inline text-[10px] px-1.5 py-0.5 rounded bg-surface-2 text-muted-foreground border border-border">⌘K</kbd>
           </form>
 
           <div className="ml-auto flex items-center gap-3">
-            <button className="relative h-9 w-9 grid place-items-center rounded-lg bg-surface border border-border hover:border-accent/50 transition">
-              <Bell className="h-4 w-4" />
-              <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
-            </button>
+            <SupportChat />
             <div className="flex items-center gap-2.5 pl-2">
               <div className="h-9 w-9 rounded-full gradient-ember grid place-items-center text-sm font-bold text-white">
-                YF
+                LR
               </div>
               <div className="hidden sm:block leading-tight">
-                <div className="text-sm font-medium">Yooniq Forge</div>
-                <div className="text-xs text-muted-foreground">Lead Recruiter</div>
+                <div className="text-sm font-medium">Lead Recruiter</div>
+                <div className="text-xs text-muted-foreground">Recruiter Account</div>
               </div>
             </div>
           </div>
@@ -138,7 +142,17 @@ export function AppLayout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        <main className="flex-1 p-4 md:p-8 max-w-[1400px] w-full mx-auto">{children}</main>
+        <main className="flex-1 p-4 md:p-8 max-w-[1400px] w-full mx-auto">
+          {children}
+          
+          {/* Copyright Footer */}
+          <footer className="mt-12 pt-6 border-t border-border text-center text-xs text-muted-foreground">
+            <p>© 2026 Yooniq Forge. All rights reserved.</p>
+            <p className="mt-1">
+              Created for INDIA.RUN Hackathon organized by Redrob AI • Educational Purpose Only
+            </p>
+          </footer>
+        </main>
       </div>
     </div>
   );

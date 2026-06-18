@@ -1,0 +1,60 @@
+# Educational License
+
+Copyright © 2026 Yooniq Forge. All Rights Reserved.
+
+## Project Information
+
+**Project Name:** HireSense AI - AI-Powered Candidate Ranking System
+
+**Created By:** Yooniq Forge Team
+
+**Purpose:** Educational and Hackathon Submission
+
+**Hackathon:** INDIA.RUN Hackathon 2026
+
+**Organized By:** Redrob AI
+
+## Terms and Conditions
+
+### 1. Copyright Notice
+This project and all associated source code, documentation, and assets are the intellectual property of Yooniq Forge. All rights are reserved.
+
+### 2. Educational Purpose
+This software is developed solely for educational purposes and as a submission for the INDIA.RUN Hackathon organized by Redrob AI. It is intended to demonstrate AI-powered candidate ranking capabilities and showcase technical skills.
+
+### 3. Usage Restrictions
+- This software is provided for educational and demonstration purposes only
+- Commercial use of this software is strictly prohibited without explicit written permission from Yooniq Forge
+- Redistribution of this software, in whole or in part, requires prior written consent from Yooniq Forge
+- Any modifications or derivative works must maintain this license and copyright notice
+
+### 4. Hackathon Submission
+This project was created as part of the INDIA.RUN Hackathon organized by Redrob AI. The submission includes:
+- AI-powered candidate ranking algorithm
+- Full-stack web application (React + Flask)
+- Integration with candidate datasets
+- Real-time analytics and insights
+
+### 5. Dataset Attribution
+This project uses the candidate dataset provided by Redrob AI for the INDIA.RUN Hackathon. The dataset remains the property of Redrob AI and is used in accordance with the hackathon terms and conditions.
+
+### 6. Disclaimer
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL YOONIQ FORGE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### 7. Contact Information
+For permissions, inquiries, or collaboration opportunities, please contact Yooniq Forge.
+
+### 8. Acknowledgments
+- **Redrob AI** for organizing the INDIA.RUN Hackathon and providing the candidate dataset
+- **INDIA.RUN** for hosting the hackathon platform
+- All open-source libraries and frameworks used in this project
+
+---
+
+**Last Updated:** June 2024
+
+**Version:** 1.0.0
+
+**Team:** Yooniq Forge
+
+**Hackathon:** INDIA.RUN 2024 by Redrob AI
