@@ -61,9 +61,9 @@ export function ScoreBadge({ score, size = "md" }: { score: number; size?: "sm" 
     score >= 90 ? "ember" : score >= 75 ? "flame" : score >= 60 ? "amber" : "neutral";
   const styles = {
     ember: "from-primary to-accent text-white glow-ember",
-    flame: "from-accent to-amber-glow text-black glow-flame",
-    amber: "from-amber-glow/80 to-amber-glow/40 text-black",
-    neutral: "from-surface-2 to-surface-2 text-muted-foreground",
+    flame: "from-accent to-amber-glow text-white glow-flame",
+    amber: "from-amber-glow/80 to-amber-glow/40 text-white",
+    neutral: "from-surface-2 to-surface-2 text-white border border-border",
   }[tier];
   const sizing = {
     sm: "text-xs px-2 py-0.5 min-w-12",
