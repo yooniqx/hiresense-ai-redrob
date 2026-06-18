@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { AppLayout } from '@/components/AppLayout';
-import { SectionHeader, PrimaryButton, GhostButton } from '@/components/ui-kit';
+import { SectionHeader } from '@/components/ui-kit';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -58,8 +58,21 @@ export default function AddCandidate() {
     setSkills(updated);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    try {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      console.log('=== FORM SUBMITTED ===');
+      console.log('Form data:', formData);
+      console.log('Skills:', skills);
+      
+      // Prevent any default form behavior
+      if (isSubmitting) {
+        console.log('Already submitting, ignoring...');
+        return false;
+      }
     
     // Validation
     if (!formData.name.trim()) {
@@ -84,6 +97,8 @@ export default function AddCandidate() {
     setIsSubmitting(true);
 
     try {
+      console.log('Preparing candidate data...');
+      
       // Prepare candidate data in backend expected format
       const candidateData = {
         profile: {
@@ -131,27 +146,46 @@ export default function AddCandidate() {
         },
       };
 
+      console.log('Candidate data prepared:', candidateData);
+      console.log('Sending candidate data to API...');
+      
       const result = await api.addCandidate(candidateData);
+      console.log('API Response:', result);
 
       if (result.success) {
+        console.log('Success! Invalidating query cache...');
         // Invalidate candidates query to force refetch
         await queryClient.invalidateQueries({ queryKey: ['candidates'] });
         
+        console.log('Showing success toast...');
         toast.success(
           `Candidate Added Successfully! Score: ${result.score} | Rank: #${result.rank} of ${result.total_candidates}`,
           { duration: 3000 }
         );
         
         // Navigate to candidates page after short delay
+        console.log('Scheduling navigation...');
         setTimeout(() => {
+          console.log('Navigating to candidates page...');
           navigate('/candidates');
         }, 2000);
+      } else {
+        console.error('API returned success=false');
+        toast.error('Failed to add candidate');
       }
     } catch (error) {
-      console.error('Error adding candidate:', error);
-      toast.error('Failed to add candidate. Please try again.');
+      console.error('=== ERROR ADDING CANDIDATE ===');
+      console.error('Error details:', error);
+      console.error('Error message:', error instanceof Error ? error.message : String(error));
+      toast.error(`Failed to add candidate: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setIsSubmitting(false);
+    }
+    } catch (topLevelError) {
+      console.error('=== TOP LEVEL ERROR ===');
+      console.error(topLevelError);
+      setIsSubmitting(false);
+      toast.error('Unexpected error occurred');
     }
   };
 
@@ -415,7 +449,8 @@ export default function AddCandidate() {
               Cancel
             </button>
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               disabled={isSubmitting}
               className="inline-flex items-center gap-2 h-10 px-6 rounded-lg gradient-ember text-white font-medium text-sm hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
