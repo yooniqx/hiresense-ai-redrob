@@ -11,31 +11,80 @@
 
 HireSense AI is an intelligent candidate ranking system that processes 100,000+ candidate profiles and ranks them against job requirements using explainable AI. Built for the INDIA.RUNS Data & AI Challenge, it combines a powerful Python backend with a modern React frontend.
 
-### Key Features
+## 🎯 Feature Status
 
-- **🎯 Multi-Component Scoring**: Skills (40%), Experience (30%), Profile (20%), Behavioral Signals (10%)
-- **🧠 Explainable AI**: Detailed reasoning for each candidate ranking
-- **🔍 Honeypot Detection**: Identifies suspicious or impossible profiles
-- **📊 Real-time Dashboard**: Live statistics and activity monitoring
-- **🎨 Modern UI**: Dark theme with professional design
-- **⚡ Fast Processing**: Ranks 100K candidates in minutes
+### ✅ Fully Working Features
+
+#### Backend (Python/Flask)
+- ✅ **Multi-Component Scoring Engine** - Skills (40%), Experience (30%), Profile (20%), Behavioral Signals (10%)
+- ✅ **Explainable AI Rankings** - Detailed reasoning for each candidate score
+- ✅ **Honeypot Detection** - Identifies suspicious or impossible profiles
+- ✅ **REST API** - 8 endpoints for candidate data and analytics
+- ✅ **Data Processing** - Handles 100K+ candidates efficiently
+- ✅ **CSV Export** - Generates ranked_candidates.csv in required format
+
+#### Frontend (React/TypeScript)
+- ✅ **Dashboard** - Real-time statistics and activity monitoring
+- ✅ **Candidate Search** - Search and filter candidates by name, skills, location
+- ✅ **Candidate Details** - Comprehensive profile view with scoring breakdown
+- ✅ **Results/Leaderboard** - Ranked candidate list with filtering
+- ✅ **Analytics Dashboard** - Score distribution charts and insights
+- ✅ **Job Description Viewer** - Display job requirements
+- ✅ **Dark Theme UI** - Professional design with Tailwind CSS
+- ✅ **Responsive Design** - Works on desktop and mobile
+
+### ⚠️ Known Issues
+
+#### Add Candidate Feature (Currently Not Working)
+- ❌ **Form Submission Issue** - Page refreshes before API call completes
+- ❌ **No Success Feedback** - Success message doesn't appear
+- ❌ **Candidate Not Added** - New candidates don't persist in the system
+
+**Technical Details:**
+- Form validation works correctly
+- API endpoint `/api/candidates/add` is functional on backend
+- Issue is in frontend form submission handling
+- Page navigation occurs before async API response is received
+
+**Workaround:**
+- Use the backend API directly via curl/Postman to add candidates
+- Or manually add candidates to the `candidates.jsonl` file and restart backend
+
+**Example API Call:**
+```bash
+curl -X POST http://localhost:5000/api/candidates/add \
+  -H "Content-Type: application/json" \
+  -d '{
+    "profile": {
+      "name": "John Doe",
+      "headline": "Senior ML Engineer",
+      "years_of_experience": 5
+    },
+    "skills": [
+      {"name": "Python", "proficiency": "Expert"},
+      {"name": "PyTorch", "proficiency": "Expert"},
+      {"name": "Machine Learning", "proficiency": "Expert"}
+    ]
+  }'
+```
 
 ## Tech Stack
 
 ### Backend
 - **Python 3.8+** - Core language
-- **Flask** - REST API framework
-- **pandas** - Data processing
-- **python-docx** - Document parsing
+- **Flask** - REST API framework with CORS support
+- **pandas** - Data processing and analysis
+- **python-docx** - Document parsing for job descriptions
 
 ### Frontend
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **TanStack Router** - Client-side routing
-- **TanStack Query** - Data fetching
-- **Vite** - Build tool
-- **Tailwind CSS 4** - Styling
-- **shadcn/ui** - Component library
+- **React 19** - UI framework with hooks
+- **TypeScript 5.8** - Type safety and better DX
+- **TanStack Router** - Type-safe client-side routing
+- **TanStack Query** - Server state management and caching
+- **Vite** - Fast build tool with HMR
+- **Tailwind CSS 4** - Utility-first styling
+- **shadcn/ui** - High-quality component library
+- **Lucide React** - Icon library
 
 ## Quick Start
 
@@ -44,6 +93,7 @@ HireSense AI is an intelligent candidate ranking system that processes 100,000+ 
 - Python 3.8 or higher
 - Node.js 18 or higher
 - npm or yarn
+- Git
 
 ### Installation
 
@@ -96,14 +146,27 @@ hiresense-ai-redrob/
 │       ├── ranker.py          # Ranking pipeline
 │       └── honeypot_detector.py  # Profile validation
 ├── src/                       # React/TypeScript frontend
-│   ├── routes/                # Page components
-│   │   ├── index.tsx          # Dashboard
-│   │   ├── results.tsx        # Candidate leaderboard
-│   │   ├── candidates.$id.tsx # Candidate details
-│   │   └── analytics.tsx      # Analytics dashboard
+│   ├── routes/                # Page routes
+│   │   ├── index.tsx          # Dashboard (✅ Working)
+│   │   ├── results.tsx        # Leaderboard (✅ Working)
+│   │   ├── candidates.index.tsx # Search (✅ Working)
+│   │   ├── candidates.$id.tsx # Details (✅ Working)
+│   │   ├── add-candidate.tsx  # Add Form (❌ Not Working)
+│   │   ├── analytics.tsx      # Analytics (✅ Working)
+│   │   └── job-description.tsx # Job Desc (✅ Working)
+│   ├── pages/                 # Page components
+│   │   ├── Dashboard.tsx
+│   │   ├── Results.tsx
+│   │   ├── Candidates.tsx
+│   │   ├── CandidateDetails.tsx
+│   │   ├── AddCandidate.tsx   # ⚠️ Has form submission issue
+│   │   ├── Analytics.tsx
+│   │   └── JobDescription.tsx
 │   ├── components/            # UI components
 │   │   ├── ui/                # shadcn/ui components
-│   │   └── ui-kit.tsx         # Custom components
+│   │   ├── ui-kit.tsx         # Custom components
+│   │   ├── AppLayout.tsx      # Main layout
+│   │   └── SupportChat.tsx    # Support widget
 │   └── lib/
 │       └── api.ts             # Backend API client
 ├── datasets/                  # Challenge dataset
@@ -122,29 +185,38 @@ hiresense-ai-redrob/
 
 ## API Endpoints
 
-### Candidate Endpoints
-- `GET /api/candidates` - List all ranked candidates
-- `GET /api/candidates/:id` - Get single candidate details
-- `GET /api/stats` - Dashboard statistics
-- `GET /api/activity` - Recent ranking activity
+### Candidate Management
+- `GET /api/candidates` - List all ranked candidates with pagination
+- `GET /api/candidates/:id` - Get single candidate details with full profile
+- `POST /api/candidates/add` - Add new candidate (⚠️ Frontend integration broken)
+- `GET /api/candidates/search?q=query` - Search candidates by name/skills
+
+### Analytics & Stats
+- `GET /api/stats` - Dashboard statistics (total candidates, avg score, etc.)
+- `GET /api/activity` - Recent ranking activity feed
 - `GET /api/analytics` - Score distribution and insights
 - `GET /api/job-description` - Job description text
-- `POST /api/rank` - Trigger ranking process
+
+### Ranking
+- `POST /api/rank` - Trigger full ranking process for all candidates
 
 ### Response Format
 
 ```json
 {
-  "id": "c001",
+  "candidate_id": "c001",
   "name": "John Doe",
-  "title": "Senior ML Engineer",
+  "current_role": "Senior ML Engineer",
   "location": "San Francisco, CA",
-  "score": 92,
-  "skillsMatch": 95,
-  "experienceMatch": 88,
-  "behavioralFit": 85,
+  "score": 92.34,
+  "rank": 1,
+  "skills_match": 95,
+  "experience_match": 88,
+  "profile_score": 90,
+  "behavioral_fit": 85,
   "recommendation": "Strong Hire",
   "skills": ["Python", "PyTorch", "LLMs"],
+  "experience_years": 5,
   "explanation": "Strong technical background with relevant experience..."
 }
 ```
@@ -156,7 +228,7 @@ hiresense-ai-redrob/
 1. **Skills Match (40%)**
    - Required skills: Python, PyTorch, TensorFlow, Machine Learning, Deep Learning
    - Nice-to-have: JAX, MLOps, RAG, RLHF
-   - Skill proficiency levels
+   - Skill proficiency levels (Expert, Advanced, Intermediate)
    - Technology stack alignment
 
 2. **Experience Match (30%)**
@@ -188,7 +260,7 @@ hiresense-ai-redrob/
 
 Identifies suspicious profiles with:
 - Impossible skill combinations
-- Unrealistic experience claims
+- Unrealistic experience claims (e.g., 20 years of experience at age 25)
 - Inconsistent career timelines
 - Duplicate or fake profiles
 
@@ -252,8 +324,11 @@ VITE_API_URL=http://localhost:5000/api
 # Run with auto-reload
 python run.py
 
-# Generate rankings only
+# Generate rankings only (no server)
 python generate_ranking.py
+
+# Test API endpoints
+curl http://localhost:5000/api/stats
 ```
 
 ### Frontend Development
@@ -261,6 +336,12 @@ python generate_ranking.py
 ```bash
 # Development server with hot reload
 npm run dev
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
 
 # Build for production
 npm run build
@@ -282,13 +363,19 @@ FLASK_PORT = 5001
 **Dataset not found:**
 - Verify `candidates.jsonl` is in the correct location
 - Check path in `backend/config.py`
+- File should be 464MB in size
+
+**CORS errors:**
+- Backend has CORS enabled by default
+- Check `flask_cors` is installed: `pip install flask-cors`
 
 ### Frontend Issues
 
 **API connection failed:**
 - Ensure backend is running on port 5000
-- Check `.env` file has correct API_URL
+- Check `.env` file has correct `VITE_API_URL`
 - Verify CORS is enabled in backend
+- Check browser console for detailed errors
 
 **Build errors:**
 ```bash
@@ -297,12 +384,56 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
+**TypeScript errors:**
+```bash
+# Regenerate route types
+npm run type-check
+```
+
+### Add Candidate Issue
+
+**Current Status:** Form submission causes page refresh before API completes
+
+**Attempted Fixes:**
+- Added `e.preventDefault()` to form handler
+- Changed button type from `submit` to `button`
+- Added inline preventDefault to form element
+- Extensive logging added for debugging
+
+**Next Steps for Fix:**
+- Remove form element entirely, use div container
+- Or investigate TanStack Router navigation behavior
+- Or implement with React Hook Form for better control
+
 ## Performance
 
 - **Dataset Size**: 100,000 candidates
 - **Processing Time**: ~2-3 minutes (initial ranking)
 - **Memory Usage**: ~2GB RAM
 - **API Response Time**: <100ms per request
+- **Frontend Load Time**: <2s initial load
+- **Search Performance**: Real-time filtering of 100K records
+
+## Testing
+
+### Backend Testing
+```bash
+# Test ranking algorithm
+python -c "from backend.services.ranker import rank_candidates; print('OK')"
+
+# Test API endpoints
+curl http://localhost:5000/api/stats
+curl http://localhost:5000/api/candidates?limit=10
+```
+
+### Frontend Testing
+```bash
+# Type checking
+npm run type-check
+
+# Build test
+npm run build
+```
 
 ## Contributing
 
@@ -314,6 +445,12 @@ This project was built for the INDIA.RUNS Data & AI Challenge. Contributions are
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+### Priority Issues to Fix
+1. **Add Candidate Form** - Fix form submission and page refresh issue
+2. **Real-time Updates** - Add WebSocket support for live ranking updates
+3. **Bulk Import** - Add CSV/JSON bulk candidate import
+4. **Export Features** - Add PDF/Excel export for candidate reports
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -321,14 +458,19 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - **INDIA.RUNS** for organizing the Data & AI Challenge
-- **Lovable** for the initial UI design
-- **shadcn/ui** for the component library
+- **Redrob AI** for the challenge dataset and requirements
+- **shadcn/ui** for the excellent component library
 - **TanStack** for Router and Query libraries
+- **Vite** for the blazing fast build tool
 
 ## Contact
 
-For questions or support, please open an issue on GitHub.
+For questions or support:
+- Open an issue on GitHub
+- Repository: https://github.com/yooniqx/hiresense-ai-redrob
 
 ---
 
 Built with ❤️ for the INDIA.RUNS Data & AI Challenge
+
+**Last Updated:** June 18, 2026
