@@ -1,0 +1,16 @@
+{
+  "total_candidates": 10000,
+  "num_chunks": 10,
+  "chunk_files": [
+    "candidates_chunk_001.json",
+    "candidates_chunk_002.json",
+    "candidates_chunk_003.json",
+    "candidates_chunk_004.json",
+    "candidates_chunk_005.json",
+    "candidates_chunk_006.json",
+    "candidates_chunk_007.json",
+    "candidates_chunk_008.json",
+    "candidates_chunk_009.json",
+    "candidates_chunk_010.json"
+  ]
+}

@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 # Paths
-BACKUP_FILE = "backup_data/candidates.jsonl"
+BACKUP_FILE = "backup_data/[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/candidates.jsonl"
 OUTPUT_DIR = Path("backend/data/chunks")
 CHUNK_SIZE_MB = 35  # Target size per chunk in MB
 
@@ -114,4 +114,4 @@ if __name__ == "__main__":
         print("\n[ERROR] Failed to split candidates")
         print("Make sure candidates.jsonl is in backup_data/ folder")
 
-# Made with Bob
+
