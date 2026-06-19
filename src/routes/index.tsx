@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { StatCard, ScoreBadge, SectionHeader, PrimaryButton, GhostButton } from "@/components/ui-kit";
 import { Users, CheckCircle2, Gauge, Crown, Upload, FileText, Trophy, ArrowUpRight, Sparkles } from "lucide-react";
-import { fetchCandidates, fetchStats, fetchActivity } from "@/lib/api";
+import { api } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/")({
@@ -19,24 +19,28 @@ function Dashboard() {
   // Fetch data from API
   const { data: candidates = [], isLoading: candidatesLoading } = useQuery({
     queryKey: ['candidates'],
-    queryFn: fetchCandidates,
+    queryFn: api.getCandidates,
   });
 
   const { data: stats, isLoading: statsLoading } = useQuery({
     queryKey: ['stats'],
-    queryFn: fetchStats,
+    queryFn: api.getStats,
   });
 
-  const { data: activity = [], isLoading: activityLoading } = useQuery({
-    queryKey: ['activity'],
-    queryFn: fetchActivity,
-  });
+  // Generate recent activity from ranked candidates
+  const recentActivity = candidates.slice(0, 5).map((candidate, index) => ({
+    who: candidate.name,
+    action: "was ranked for",
+    role: candidate.title || "Position",
+    time: `${index + 1} ${index === 0 ? 'minute' : 'minutes'} ago`,
+    score: candidate.score ? Math.round(candidate.score) : undefined,
+  }));
 
   // Get top candidate
   const topCandidate = candidates[0];
 
   // Show loading state
-  if (candidatesLoading || statsLoading || activityLoading) {
+  if (candidatesLoading || statsLoading) {
     return (
       <AppLayout>
         <div className="flex items-center justify-center h-96">
@@ -92,8 +96,9 @@ function Dashboard() {
             description="Latest scoring events from the AI engine"
           />
           <div className="-mt-2 divide-y divide-border">
-            {activity.map((a, i) => (
-              <div key={i} className="px-6 py-4 flex items-center gap-4">
+            {recentActivity.length > 0 ? (
+              recentActivity.map((a, i) => (
+                <div key={i} className="px-6 py-4 flex items-center gap-4">
                 <div className="h-9 w-9 rounded-lg gradient-ember grid place-items-center text-xs font-bold text-white shrink-0">
                   {a.who.split(" ").map((w) => w[0]).slice(0, 2).join("")}
                 </div>
@@ -106,8 +111,13 @@ function Dashboard() {
                   <div className="text-xs text-muted-foreground mt-0.5">{a.time}</div>
                 </div>
                 {a.score ? <ScoreBadge score={a.score} /> : <span className="text-xs text-muted-foreground">—</span>}
+                </div>
+              ))
+            ) : (
+              <div className="px-6 py-8 text-center text-muted-foreground">
+                No ranking activity yet
               </div>
-            ))}
+            )}
           </div>
         </div>
 
@@ -123,27 +133,27 @@ function Dashboard() {
                   </div>
                   <div>
                     <div className="font-bold">{topCandidate.name}</div>
-                    <div className="text-xs opacity-90">{topCandidate.title}</div>
+                    <div className="text-xs opacity-90">{topCandidate.title || topCandidate.current_role}</div>
                   </div>
                 </div>
-                <div className="text-5xl font-display font-black tracking-tight">{topCandidate.score}<span className="text-2xl opacity-80">%</span></div>
+                <div className="text-5xl font-display font-black tracking-tight">{Math.round(topCandidate.score || 0)}<span className="text-2xl opacity-80">%</span></div>
                 <div className="text-xs opacity-90 mt-1">match score</div>
-                <Link to="/candidates/$id" params={{ id: topCandidate.id }} className="mt-4 inline-flex items-center gap-1 text-xs font-medium underline-offset-2 hover:underline">
+                <Link to={`/candidates/${topCandidate.candidate_id || topCandidate.id}`} className="mt-4 inline-flex items-center gap-1 text-xs font-medium underline-offset-2 hover:underline">
                   View profile <ArrowUpRight className="h-3 w-3" />
                 </Link>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
                 <div className="rounded-lg bg-surface-2 p-2">
-                  <div className="font-display font-bold text-base">{topCandidate.skillsMatch}</div>
+                  <div className="font-display font-bold text-base">{topCandidate.skills?.length || 0}</div>
                   <div className="text-muted-foreground">Skills</div>
                 </div>
                 <div className="rounded-lg bg-surface-2 p-2">
-                  <div className="font-display font-bold text-base">{topCandidate.experienceMatch}</div>
+                  <div className="font-display font-bold text-base">{topCandidate.experience_years || topCandidate.yearsExperience || 0}y</div>
                   <div className="text-muted-foreground">Experience</div>
                 </div>
                 <div className="rounded-lg bg-surface-2 p-2">
-                  <div className="font-display font-bold text-base">{topCandidate.behavioralFit}</div>
-                  <div className="text-muted-foreground">Fit</div>
+                  <div className="font-display font-bold text-base">#{topCandidate.rank || 1}</div>
+                  <div className="text-muted-foreground">Rank</div>
                 </div>
               </div>
             </>
