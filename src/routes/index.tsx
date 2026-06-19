@@ -93,7 +93,7 @@ function Dashboard() {
           />
           <div className="-mt-2 divide-y divide-border">
             {activity.map((a, i) => (
-              <div key={i} className="px-1 py-4 flex items-center gap-4">
+              <div key={i} className="px-6 py-4 flex items-center gap-4">
                 <div className="h-9 w-9 rounded-lg gradient-ember grid place-items-center text-xs font-bold text-white shrink-0">
                   {a.who.split(" ").map((w) => w[0]).slice(0, 2).join("")}
                 </div>
