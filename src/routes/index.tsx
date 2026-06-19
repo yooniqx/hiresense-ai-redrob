@@ -31,7 +31,7 @@ function Dashboard() {
   const recentActivity = candidates.slice(0, 5).map((candidate, index) => ({
     who: candidate.name,
     action: "was ranked for",
-    role: candidate.title || "Position",
+    role: candidate.current_role || candidate.title || "Position",
     time: `${index + 1} ${index === 0 ? 'minute' : 'minutes'} ago`,
     score: candidate.score ? Math.round(candidate.score) : undefined,
   }));
@@ -133,7 +133,7 @@ function Dashboard() {
                   </div>
                   <div>
                     <div className="font-bold">{topCandidate.name}</div>
-                    <div className="text-xs opacity-90">{topCandidate.title || topCandidate.current_role}</div>
+                    <div className="text-xs opacity-90">{topCandidate.current_role || topCandidate.title}</div>
                   </div>
                 </div>
                 <div className="text-5xl font-display font-black tracking-tight">{Math.round(topCandidate.score || 0)}<span className="text-2xl opacity-80">%</span></div>
