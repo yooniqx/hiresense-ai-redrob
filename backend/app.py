@@ -633,7 +633,11 @@ def add_candidate():
             candidate_data["days_since_active"] = 0
         
         # Score the new candidate
-        composite_score, score_details = ranker.scorer.calculate_composite_score(candidate_data)
+        if not ranker:
+            return jsonify({"error": "Ranking system not initialized"}), 500
+        
+        # Use the ranker's scoring method (handles both semantic and basic scoring)
+        composite_score, score_details = ranker.scorer.calculate_semantic_score(candidate_data) if ranker.use_semantic else ranker.scorer.calculate_composite_score(candidate_data)  # type: ignore
         
         # Create ranked entry
         rank_entry = {
@@ -650,9 +654,14 @@ def add_candidate():
         # Re-rank all candidates including the new one
         all_scored = []
         for c in all_candidates:
+            cid = c.get("candidate_id")
             try:
-                cid = c.get("candidate_id")
-                comp_score, details = ranker.scorer.calculate_composite_score(c)
+                if not ranker:
+                    continue
+                
+                # Use the ranker's scoring method
+                comp_score, details = ranker.scorer.calculate_semantic_score(c) if ranker.use_semantic else ranker.scorer.calculate_composite_score(c)  # type: ignore
+                
                 all_scored.append({
                     "candidate_id": cid,
                     "candidate": c,
@@ -672,11 +681,13 @@ def add_candidate():
         new_ranked = []
         new_candidate_rank = None
         for rank, item in enumerate(top_100, start=1):
-            reasoning = ranker.generate_reasoning(
-                item["candidate"],
-                item["score_details"],
-                rank
-            )
+            reasoning = ""
+            if ranker and hasattr(ranker, 'generate_reasoning'):
+                reasoning = ranker.generate_reasoning(
+                    item["candidate"],
+                    item["score_details"],
+                    rank
+                )
             
             entry = {
                 "rank": rank,
@@ -696,8 +707,9 @@ def add_candidate():
         ranked_candidates = new_ranked
         
         # Save updated rankings
-        ranker.ranked_candidates = ranked_candidates
-        ranker.save_submission_csv(config.RANKED_OUTPUT_FILE)
+        if ranker and hasattr(ranker, 'save_submission_csv'):
+            ranker.ranked_candidates = ranked_candidates
+            ranker.save_submission_csv(config.RANKED_OUTPUT_FILE)
         
         # Return result
         result = {
