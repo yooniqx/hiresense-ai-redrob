@@ -121,4 +121,3 @@ export default function Candidates() {
   );
 }
 
-// Made with Bob

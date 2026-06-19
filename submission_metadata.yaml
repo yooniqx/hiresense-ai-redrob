@@ -7,14 +7,14 @@
 team_name: "Yooniq Forge"
 
 primary_contact:
-  name: "[YOUR NAME HERE]"
-  email: "[YOUR EMAIL HERE]"
-  phone: "[YOUR PHONE HERE]"
+  name: "Debopriya Bose"
+  email: "dbose0906@gmail.com"
+  phone: "+91 7998180780"
 
 team_members:
-  - name: "[TEAM MEMBER 1 NAME]"
-    email: "[TEAM MEMBER 1 EMAIL]"
-    role: "[ROLE - e.g., ML Engineer, Team Lead]"
+  - name: "Kumar Saket
+    email: "exios343@gmail.com"
+    role: "[ROLE - Frontend Ideation and Development]"
   # Add more members as needed
 
 # ============================================================================
@@ -112,5 +112,3 @@ declarations:
   no_collusion: true
   honeypot_check_done: true
   reproduction_tested: true
-
-# Made with Bob

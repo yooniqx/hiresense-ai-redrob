@@ -53,4 +53,3 @@ export default {
   plugins: [],
 } satisfies Config
 
-// Made with Bob

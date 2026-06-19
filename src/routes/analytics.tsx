@@ -186,4 +186,3 @@ function InsightCard({ icon, title, body, tone }: { icon: React.ReactNode; title
   );
 }
 
-// Made with Bob

@@ -205,4 +205,3 @@ export default function CandidateDetails() {
   );
 }
 
-// Made with Bob

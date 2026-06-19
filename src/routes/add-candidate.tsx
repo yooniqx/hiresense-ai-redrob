@@ -5,4 +5,3 @@ export const Route = createFileRoute('/add-candidate')({
   component: AddCandidate,
 })
 
-// Made with Bob

@@ -234,5 +234,3 @@ export function SupportChat() {
     </>
   );
 }
-
-// Made with Bob

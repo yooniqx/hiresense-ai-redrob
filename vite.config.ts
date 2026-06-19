@@ -20,4 +20,3 @@ export default defineConfig({
   },
 })
 
-// Made with Bob
