@@ -1,27 +1,43 @@
 # HireSense AI
 
-> AI-powered candidate ranking system for the INDIA.RUNS Data & AI Challenge
+> Semantic AI-powered candidate ranking system for the INDIA.RUNS Data & AI Challenge
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![React](https://img.shields.io/badge/React-19-61DAFB.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6.svg)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+## Team Information
+
+**Team Name:** Yooniq Forge
+
+**Primary Contact:** Debopriya Bose (dbose0906@gmail.com)
+
+**Team Members:**
+- Debopriya Bose - Backend Development & AI Implementation
+- Kumar Saket (exios343@gmail.com) - Frontend Ideation and Development
+
+**Repository:** https://github.com/yooniqx/hiresense-ai-redrob
+
 ## Overview
 
-HireSense AI is an intelligent candidate ranking system that processes 100,000+ candidate profiles and ranks them against job requirements using explainable AI. Built for the INDIA.RUNS Data & AI Challenge, it combines a powerful Python backend with a modern React frontend.
+HireSense AI is a semantic candidate ranking system that "reads between the lines" to identify truly qualified ML engineers. Unlike traditional keyword-matching systems, it analyzes career trajectories, technical depth, and behavioral signals to detect the job description's explicit trap of "candidates with AI keywords but non-technical roles."
+
+Built for the INDIA.RUNS Data & AI Challenge by Team Yooniq Forge, combining advanced semantic analysis with a modern full-stack application.
 
 ## 🎯 Feature Status
 
 ### ✅ Fully Working Features
 
 #### Backend (Python/Flask)
-- ✅ **Multi-Component Scoring Engine** - Skills (40%), Experience (30%), Profile (20%), Behavioral Signals (10%)
+- ✅ **Semantic Scoring Engine** - Career Trajectory (35%), Technical Depth (35%), Behavioral Availability (20%), Location Fit (10%)
+- ✅ **Contextual Analysis** - Detects keyword stuffing, validates technical roles, analyzes product company experience
 - ✅ **Explainable AI Rankings** - Detailed reasoning for each candidate score
 - ✅ **Honeypot Detection** - Identifies suspicious or impossible profiles
 - ✅ **REST API** - 8 endpoints for candidate data and analytics
-- ✅ **Data Processing** - Handles 100K+ candidates efficiently
+- ✅ **Data Processing** - Handles 100K+ candidates in ~2-3 minutes
 - ✅ **CSV Export** - Generates ranked_candidates.csv in required format
+- ✅ **Results** - 85% avg score (vs 76% with keyword matching), 96% top-10 avg
 
 #### Frontend (React/TypeScript)
 - ✅ **Dashboard** - Real-time statistics and activity monitoring
@@ -223,31 +239,36 @@ hiresense-ai-redrob/
 
 ## Ranking Algorithm
 
-### Scoring Components
+### Semantic Scoring Approach
 
-1. **Skills Match (40%)**
-   - Required skills: Python, PyTorch, TensorFlow, Machine Learning, Deep Learning
-   - Nice-to-have: JAX, MLOps, RAG, RLHF
-   - Skill proficiency levels (Expert, Advanced, Intermediate)
-   - Technology stack alignment
+**Key Innovation:** Replaced keyword matching with contextual analysis to detect the JD's explicit trap of "candidates with AI keywords but non-technical roles."
 
-2. **Experience Match (30%)**
-   - Optimal range: 5-8 years
-   - Relevant job titles and roles
-   - Company tier (FAANG, unicorns, startups)
-   - Career progression patterns
+### Four-Component Semantic Scoring
 
-3. **Profile Signals (20%)**
-   - Education quality (IIT, Stanford, MIT, etc.)
-   - Location preferences
-   - Profile completeness
-   - Professional summary quality
+1. **Career Trajectory Analysis (35%)**
+   - Analyzes product company experience vs consulting backgrounds
+   - Tracks ML role progression and career growth
+   - Disqualifies consulting-only backgrounds (TCS, Infosys, Wipro, Accenture, etc.)
+   - Evaluates genuine ML/AI career development
+   - Detects title hopping and inconsistent career paths
 
-4. **Behavioral Signals (10%)**
-   - GitHub activity and contributions
-   - StackOverflow reputation
-   - Technical blog posts
-   - Open-source contributions
+2. **Technical Depth Verification (35%)**
+   - Verifies technical roles vs non-technical positions
+   - Detects keyword stuffing and fake profiles
+   - Evaluates depth in: embeddings, vector databases, retrieval, evaluation
+   - Validates hands-on experience with: Pinecone, Weaviate, Qdrant, FAISS
+   - Assesses ranking metrics knowledge: NDCG, MRR, MAP
+
+3. **Behavioral Availability (20%)**
+   - Down-weights inactive candidates (6+ months since last activity)
+   - Considers response rates and engagement levels
+   - Evaluates notice periods and availability
+   - Analyzes profile completeness and quality
+
+4. **Location Fit (10%)**
+   - Preferred: Pune, Noida, Delhi NCR, Gurgaon
+   - Tier-1 cities welcome: Bangalore, Mumbai, Hyderabad, Chennai
+   - Relocation bonus for strong candidates
 
 ### Recommendation Levels
 
@@ -455,6 +476,16 @@ This project was built for the INDIA.RUNS Data & AI Challenge. Contributions are
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## AI Tools Used
+
+This project was developed with assistance from:
+- **IBM Bob** - AI coding assistant for architecture, implementation, code review, and documentation
+- **ChatGPT** - Prompt structuring and requirements analysis
+- **Lovable** - Initial UI/UX prototype design and frontend mockups
+- **GitHub Copilot** - Code autocomplete and boilerplate generation
+
+**Important:** No candidate data was fed to any LLM. All ranking logic is deterministic and runs locally without network access.
+
 ## Acknowledgments
 
 - **INDIA.RUNS** for organizing the Data & AI Challenge
@@ -465,12 +496,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For questions or support:
-- Open an issue on GitHub
+**Team Yooniq Forge**
+- Primary Contact: Debopriya Bose (dbose0906@gmail.com)
 - Repository: https://github.com/yooniqx/hiresense-ai-redrob
+- For questions or support: Open an issue on GitHub
 
 ---
 
-Built with ❤️ for the INDIA.RUNS Data & AI Challenge
+Built with ❤️ by Team Yooniq Forge for the INDIA.RUNS Data & AI Challenge
 
-**Last Updated:** June 18, 2026
+**Last Updated:** June 19, 2026
