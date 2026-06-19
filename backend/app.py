@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Initialize Flask app
-app = Flask(__name__, static_folder='../frontend', static_url_path='')
+app = Flask(__name__, static_folder='../dist', static_url_path='')
 CORS(app)
 
 # Global state
@@ -62,7 +62,16 @@ def initialize_system():
 @app.route('/')
 def index():
     """Serve the main frontend page"""
-    return send_from_directory(app.static_folder or '../frontend', 'index.html')
+    return send_from_directory(app.static_folder or '../dist', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    """Serve static files and fallback to index.html for client-side routing"""
+    static_folder = app.static_folder or '../dist'
+    file_path = Path(static_folder) / path
+    if file_path.exists() and file_path.is_file():
+        return send_from_directory(static_folder, path)
+    return send_from_directory(static_folder, 'index.html')
 
 
 @app.route('/api/candidates')

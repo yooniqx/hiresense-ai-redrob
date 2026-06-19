@@ -63,8 +63,8 @@ RECENT_ACTIVITY_DAYS = 60
 
 # Flask configuration
 FLASK_HOST = "0.0.0.0"
-FLASK_PORT = 5000
-FLASK_DEBUG = True
+FLASK_PORT = int(os.environ.get("PORT", 5000))
+FLASK_DEBUG = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
 
 # Create output directory if it doesn't exist
 OUTPUT_DIR.mkdir(exist_ok=True)
