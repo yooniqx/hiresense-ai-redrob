@@ -32,31 +32,52 @@ def initialize_system():
     
     logger.info("Initializing HireSense AI system...")
     
-    # Load candidates
-    data_loader = DataLoader(config.CANDIDATES_FILE)
-    candidates = data_loader.load_candidates()
-    all_candidates = data_loader.preprocess_all()
-    
-    # Initialize ranker
-    ranker = CandidateRanker({
-        "SCORING_WEIGHTS": config.SCORING_WEIGHTS,
-        "REQUIRED_SKILLS": config.REQUIRED_SKILLS,
-        "NICE_TO_HAVE_SKILLS": config.NICE_TO_HAVE_SKILLS,
-        "DISQUALIFYING_KEYWORDS": config.DISQUALIFYING_KEYWORDS,
-        "MIN_EXPERIENCE": config.MIN_EXPERIENCE,
-        "MAX_EXPERIENCE": config.MAX_EXPERIENCE,
-        "OPTIMAL_EXPERIENCE": config.OPTIMAL_EXPERIENCE,
-        "PREFERRED_LOCATIONS": config.PREFERRED_LOCATIONS,
-        "TIER_1_CITIES": config.TIER_1_CITIES
-    })
-    
-    # Rank candidates
-    ranked_candidates = ranker.rank_candidates(all_candidates)
-    
-    # Save submission CSV
-    ranker.save_submission_csv(config.RANKED_OUTPUT_FILE)
-    
-    logger.info("System initialized successfully")
+    try:
+        # Load candidates
+        data_loader = DataLoader(config.CANDIDATES_FILE)
+        candidates = data_loader.load_candidates()
+        all_candidates = data_loader.preprocess_all()
+        
+        # Initialize ranker
+        ranker = CandidateRanker({
+            "SCORING_WEIGHTS": config.SCORING_WEIGHTS,
+            "REQUIRED_SKILLS": config.REQUIRED_SKILLS,
+            "NICE_TO_HAVE_SKILLS": config.NICE_TO_HAVE_SKILLS,
+            "DISQUALIFYING_KEYWORDS": config.DISQUALIFYING_KEYWORDS,
+            "MIN_EXPERIENCE": config.MIN_EXPERIENCE,
+            "MAX_EXPERIENCE": config.MAX_EXPERIENCE,
+            "OPTIMAL_EXPERIENCE": config.OPTIMAL_EXPERIENCE,
+            "PREFERRED_LOCATIONS": config.PREFERRED_LOCATIONS,
+            "TIER_1_CITIES": config.TIER_1_CITIES
+        })
+        
+        # Rank candidates if we have any
+        if all_candidates:
+            ranked_candidates = ranker.rank_candidates(all_candidates)
+            # Save submission CSV
+            ranker.save_submission_csv(config.RANKED_OUTPUT_FILE)
+            logger.info(f"System initialized successfully with {len(ranked_candidates)} candidates")
+        else:
+            logger.info("System initialized with no candidates - ready to accept new candidates via API")
+            
+    except Exception as e:
+        logger.warning(f"Could not load initial candidates: {e}")
+        logger.info("System starting without pre-loaded candidates - candidates can be added via API")
+        # Initialize empty state
+        data_loader = DataLoader(config.CANDIDATES_FILE)
+        ranker = CandidateRanker({
+            "SCORING_WEIGHTS": config.SCORING_WEIGHTS,
+            "REQUIRED_SKILLS": config.REQUIRED_SKILLS,
+            "NICE_TO_HAVE_SKILLS": config.NICE_TO_HAVE_SKILLS,
+            "DISQUALIFYING_KEYWORDS": config.DISQUALIFYING_KEYWORDS,
+            "MIN_EXPERIENCE": config.MIN_EXPERIENCE,
+            "MAX_EXPERIENCE": config.MAX_EXPERIENCE,
+            "OPTIMAL_EXPERIENCE": config.OPTIMAL_EXPERIENCE,
+            "PREFERRED_LOCATIONS": config.PREFERRED_LOCATIONS,
+            "TIER_1_CITIES": config.TIER_1_CITIES
+        })
+        all_candidates = []
+        ranked_candidates = []
 
 
 @app.route('/')
@@ -79,7 +100,7 @@ def get_candidates():
     """Get all candidates in frontend format"""
     try:
         if not ranked_candidates:
-            return jsonify({"error": "System not initialized"}), 500
+            return jsonify([])
         
         # Transform backend data to frontend format
         candidates_list = []
@@ -431,7 +452,12 @@ def get_dashboard():
     """Get dashboard overview data"""
     try:
         if not ranked_candidates:
-            return jsonify({"error": "System not initialized"}), 500
+            return jsonify({
+                "totalCandidates": 0,
+                "rankedCandidates": 0,
+                "averageMatch": 0,
+                "topCandidate": 0
+            })
         
         # Calculate statistics
         total_candidates = len(all_candidates)
