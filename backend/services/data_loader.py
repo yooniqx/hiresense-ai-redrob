@@ -20,7 +20,7 @@ class DataLoader:
         
     def load_candidates(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
         """
-        Load candidates from JSONL file
+        Load candidates from JSON or JSONL file
         
         Args:
             limit: Maximum number of candidates to load (None for all)
@@ -33,26 +33,42 @@ class DataLoader:
         candidates = []
         try:
             with open(self.candidates_file, 'r', encoding='utf-8') as f:
-                for i, line in enumerate(f):
-                    if limit and i >= limit:
-                        break
+                content = f.read()
+                
+                # Try JSON array format first
+                try:
+                    data = json.loads(content)
+                    if isinstance(data, list):
+                        candidates = data[:limit] if limit else data
+                        logger.info(f"Loaded {len(candidates)} candidates from JSON array")
+                    else:
+                        logger.warning("JSON file does not contain an array")
+                except json.JSONDecodeError:
+                    # Fall back to JSONL format
+                    logger.info("Trying JSONL format...")
+                    for i, line in enumerate(content.split('\n')):
+                        if limit and i >= limit:
+                            break
+                        
+                        line = line.strip()
+                        if line:
+                            try:
+                                candidate = json.loads(line)
+                                candidates.append(candidate)
+                            except json.JSONDecodeError as e:
+                                logger.warning(f"Failed to parse line {i+1}: {e}")
+                                continue
                     
-                    line = line.strip()
-                    if line:
-                        try:
-                            candidate = json.loads(line)
-                            candidates.append(candidate)
-                        except json.JSONDecodeError as e:
-                            logger.warning(f"Failed to parse line {i+1}: {e}")
-                            continue
+                    logger.info(f"Loaded {len(candidates)} candidates from JSONL")
                             
-            logger.info(f"Loaded {len(candidates)} candidates")
             self.candidates = candidates
             return candidates
             
         except FileNotFoundError:
-            logger.error(f"Candidates file not found: {self.candidates_file}")
-            raise
+            logger.warning(f"Candidates file not found: {self.candidates_file}")
+            logger.info("System will start with empty candidate list")
+            self.candidates = []
+            return []
         except Exception as e:
             logger.error(f"Error loading candidates: {e}")
             raise

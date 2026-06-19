@@ -1,101 +1,101 @@
 candidate_id,rank,score,reasoning
-CAND_0077337,1,0.9900,"Staff Machine Learning Engineer (7.0y); product company exp; 4 ML roles; good technical skills; highly active; Kochi, Kerala"
-CAND_0081846,2,0.9900,"Lead AI Engineer (6.7y); product company exp; 2 ML roles; strong technical depth; Jaipur, Rajasthan"
-CAND_0068351,3,0.9800,"Lead AI Engineer (6.4y); product company exp; 3 ML roles; good technical skills; Delhi, Delhi (preferred location)"
-CAND_0018499,4,0.9700,"Senior Machine Learning Engineer (7.2y); product company exp; 3 ML roles; strong technical depth; Noida, Uttar Pradesh (preferred location)"
-CAND_0002025,5,0.9600,"Senior AI Engineer (5.9y); product company exp; 2 ML roles; good technical skills; highly active; Trivandrum, Kerala"
-CAND_0071974,6,0.9500,"Senior AI Engineer (7.8y); product company exp; 3 ML roles; strong technical depth; Vizag, Andhra Pradesh"
-CAND_0046064,7,0.9425,"Senior NLP Engineer (8.9y); product company exp; 3 ML roles; good technical skills; Coimbatore, Tamil Nadu"
-CAND_0068811,8,0.9300,"Applied ML Engineer (8.0y); product company exp; 4 ML roles; strong technical depth; highly active; Pune, Maharashtra (preferred location)"
-CAND_0080766,9,0.9300,"Staff Machine Learning Engineer (8.8y); product company exp; 4 ML roles; good technical skills; Coimbatore, Tamil Nadu"
-CAND_0093193,10,0.9300,"Senior Machine Learning Engineer (7.9y); product company exp; 2 ML roles; good technical skills; Bangalore, Karnataka (tier-1 city)"
-CAND_0006418,11,0.9200,"Machine Learning Engineer (5.7y); product company exp; 2 ML roles; strong technical depth; Gurgaon, Haryana (preferred location)"
-CAND_0039754,12,0.9200,"Senior Applied Scientist (16.2y); product company exp; 3 ML roles; good technical skills; Indore, Madhya Pradesh"
-CAND_0099806,13,0.9200,"AI Engineer (4.6y); product company exp; 2 ML roles; strong technical depth; Bhubaneswar, Odisha"
-CAND_0018549,14,0.9100,"Recommendation Systems Engineer (6.8y); product company exp; 2 ML roles; good technical skills; Coimbatore, Tamil Nadu"
-CAND_0030468,15,0.9100,"Senior Applied Scientist (5.4y); product company exp; 2 ML roles; good technical skills; Indore, Madhya Pradesh"
-CAND_0036437,16,0.9000,"Search Engineer (4.8y); product company exp; 3 ML roles; good technical skills; Kolkata, West Bengal"
-CAND_0066999,17,0.9000,"Recommendation Systems Engineer (5.9y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
-CAND_0074225,18,0.9000,"Machine Learning Engineer (4.3y); product company exp; 2 ML roles; good technical skills; highly active; Vizag, Andhra Pradesh"
-CAND_0042506,19,0.8925,"Search Engineer (4.2y); product company exp; 2 ML roles; good technical skills; highly active; Mumbai, Maharashtra (tier-1 city)"
-CAND_0011162,20,0.8910,"Recommendation Systems Engineer (5.8y); product company exp; 3 ML roles; strong technical depth; Coimbatore, Tamil Nadu"
-CAND_0011687,21,0.8900,"Senior NLP Engineer (7.8y); product company exp; 2 ML roles; strong technical depth; Indore, Madhya Pradesh"
-CAND_0041610,22,0.8900,"Recommendation Systems Engineer (6.7y); product company exp; 4 ML roles; strong technical depth; Indore, Madhya Pradesh"
-CAND_0049538,23,0.8900,"Applied ML Engineer (5.8y); product company exp; 3 ML roles; strong technical depth; highly active; Jaipur, Rajasthan"
-CAND_0061655,24,0.8900,"Machine Learning Engineer (4.6y); product company exp; 2 ML roles; good technical skills; highly active; Jaipur, Rajasthan"
-CAND_0086022,25,0.8900,"Senior Applied Scientist (5.3y); product company exp; 2 ML roles; strong technical depth; Kolkata, West Bengal"
-CAND_0041669,26,0.8850,"Recommendation Systems Engineer (8.0y); product company exp; 3 ML roles; good technical skills; Noida, Uttar Pradesh (preferred location)"
-CAND_0079064,27,0.8835,"Senior Data Scientist (5.2y); product company exp; 2 ML roles; good technical skills; Noida, Uttar Pradesh (preferred location)"
-CAND_0055992,28,0.8800,AI Engineer (16.9y); product company exp; 4 ML roles; strong technical depth; Sydney
-CAND_0076163,29,0.8800,"NLP Engineer (6.9y); product company exp; 2 ML roles; good technical skills; Chandigarh, Chandigarh"
-CAND_0081053,30,0.8735,"NLP Engineer (5.4y); product company exp; 2 ML roles; good technical skills; Chandigarh, Chandigarh"
-CAND_0078492,31,0.8725,"Recommendation Systems Engineer (5.1y); product company exp; 2 ML roles; good technical skills; Kochi, Kerala"
-CAND_0087364,32,0.8700,"Recommendation Systems Engineer (4.9y); product company exp; 2 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
-CAND_0010257,33,0.8660,"Senior Data Scientist (6.5y); product company exp; 3 ML roles; good technical skills; Noida, Uttar Pradesh (preferred location)"
-CAND_0013536,34,0.8610,"Applied ML Engineer (14.1y); product company exp; 2 ML roles; strong technical depth; Trivandrum, Kerala"
-CAND_0039838,35,0.8610,"Recommendation Systems Engineer (4.9y); product company exp; 2 ML roles; strong technical depth; Kochi, Kerala"
-CAND_0074735,36,0.8610,"Applied ML Engineer (5.5y); product company exp; 3 ML roles; good technical skills; Chandigarh, Chandigarh"
-CAND_0084819,37,0.8610,"Search Engineer (4.5y); product company exp; 2 ML roles; good technical skills; Indore, Madhya Pradesh"
-CAND_0055905,38,0.8600,Senior Machine Learning Engineer (8.1y); product company exp; 3 ML roles; strong technical depth; London
-CAND_0072660,39,0.8600,Machine Learning Engineer (7.1y); product company exp; 3 ML roles; good technical skills; highly active; Berlin
-CAND_0075574,40,0.8600,"Machine Learning Engineer (5.7y); product company exp; 3 ML roles; good technical skills; Bangalore, Karnataka (tier-1 city)"
-CAND_0093912,41,0.8600,"Senior Data Scientist (5.3y); product company exp; 3 ML roles; strong technical depth; Chandigarh, Chandigarh"
-CAND_0089947,42,0.8570,"Junior ML Engineer (5.4y); product company exp; 2 ML roles; strong technical depth; highly active; Noida, Uttar Pradesh (preferred location)"
-CAND_0006557,43,0.8550,"NLP Engineer (7.9y); product company exp; 2 ML roles; good technical skills; Jaipur, Rajasthan"
-CAND_0086151,44,0.8550,"Recommendation Systems Engineer (7.7y); product company exp; 3 ML roles; strong technical depth; Vizag, Andhra Pradesh"
-CAND_0020877,45,0.8500,"Applied ML Engineer (5.1y); product company exp; 2 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
-CAND_0042029,46,0.8500,"Senior Data Scientist (6.5y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
-CAND_0009024,47,0.8450,"Search Engineer (5.2y); product company exp; 2 ML roles; good technical skills; Chennai, Tamil Nadu (tier-1 city)"
-CAND_0026532,48,0.8450,"Recommendation Systems Engineer (4.8y); product company exp; 2 ML roles; strong technical depth; Chennai, Tamil Nadu (tier-1 city)"
-CAND_0042100,49,0.8435,Machine Learning Engineer (7.3y); product company exp; 2 ML roles; good technical skills; Singapore
-CAND_0052328,50,0.8425,"Recommendation Systems Engineer (6.5y); product company exp; 2 ML roles; good technical skills; Pune, Maharashtra (preferred location)"
-CAND_0081852,51,0.8425,"Senior Data Scientist (5.9y); product company exp; 2 ML roles; good technical skills; highly active; Delhi, Delhi (preferred location)"
-CAND_0094759,52,0.8425,"Lead AI Engineer (8.6y); product company exp; 3 ML roles; good technical skills; Mumbai, Maharashtra (tier-1 city)"
-CAND_0044855,53,0.8400,"Senior Data Scientist (6.6y); product company exp; 3 ML roles; strong technical depth; Coimbatore, Tamil Nadu"
-CAND_0060054,54,0.8400,"AI Engineer (6.4y); product company exp; 3 ML roles; good technical skills; Jaipur, Rajasthan"
-CAND_0095528,55,0.8400,"Senior Data Scientist (5.3y); product company exp; 2 ML roles; good technical skills; Indore, Madhya Pradesh"
-CAND_0036184,56,0.8375,"Recommendation Systems Engineer (6.0y); product company exp; 2 ML roles; strong technical depth; highly active; Trivandrum, Kerala"
-CAND_0056881,57,0.8340,"Machine Learning Engineer (4.5y); product company exp; 2 ML roles; good technical skills; Trivandrum, Kerala"
-CAND_0003575,58,0.8325,"Data Scientist (3.7y); product company exp; 2 ML roles; strong technical depth; highly active; Ahmedabad, Gujarat"
-CAND_0062247,59,0.8325,"AI Engineer (7.3y); product company exp; 2 ML roles; good technical skills; Kochi, Kerala"
-CAND_0015528,60,0.8300,"Applied ML Engineer (7.4y); product company exp; 3 ML roles; good technical skills; Coimbatore, Tamil Nadu"
-CAND_0075439,61,0.8300,"Machine Learning Engineer (4.3y); product company exp; 2 ML roles; strong technical depth; Vizag, Andhra Pradesh"
-CAND_0096172,62,0.8300,"NLP Engineer (5.2y); product company exp; 2 ML roles; good technical skills; Chennai, Tamil Nadu (tier-1 city)"
-CAND_0027801,63,0.8275,"NLP Engineer (7.4y); product company exp; 3 ML roles; good technical skills; Hyderabad, Telangana (tier-1 city)"
-CAND_0064904,64,0.8270,"AI Engineer (4.9y); product company exp; 2 ML roles; strong technical depth; Hyderabad, Telangana (tier-1 city)"
-CAND_0014440,65,0.8250,"Recommendation Systems Engineer (6.4y); product company exp; 3 ML roles; good technical skills; Chennai, Tamil Nadu (tier-1 city)"
-CAND_0043228,66,0.8225,"Applied ML Engineer (6.8y); product company exp; 3 ML roles; good technical skills; highly active; Chennai, Tamil Nadu (tier-1 city)"
-CAND_0045250,67,0.8225,"Applied ML Engineer (6.6y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
-CAND_0025640,68,0.8200,"AI Research Engineer (5.6y); product company exp; 2 ML roles; good technical skills; Jaipur, Rajasthan"
-CAND_0058688,69,0.8200,AI Engineer (6.7y); product company exp; 2 ML roles; strong technical depth; Berlin
-CAND_0079284,70,0.8200,"Machine Learning Engineer (4.9y); product company exp; 2 ML roles; good technical skills; Hyderabad, Telangana (tier-1 city)"
-CAND_0047327,71,0.8150,"Junior ML Engineer (5.0y); product company exp; 3 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
-CAND_0061265,72,0.8135,"Recommendation Systems Engineer (6.6y); product company exp; 3 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
-CAND_0099401,73,0.8120,"NLP Engineer (7.7y); product company exp; 4 ML roles; strong technical depth; highly active; Ahmedabad, Gujarat"
-CAND_0057563,74,0.8100,"NLP Engineer (6.8y); product company exp; 3 ML roles; good technical skills; Indore, Madhya Pradesh"
-CAND_0008425,75,0.8075,"Senior NLP Engineer (7.8y); product company exp; 3 ML roles; good technical skills; Kolkata, West Bengal"
-CAND_0046525,76,0.8075,"Senior Machine Learning Engineer (6.1y); product company exp; 2 ML roles; good technical skills; highly active; Pune, Maharashtra (preferred location)"
-CAND_0083307,77,0.8075,"Search Engineer (7.8y); product company exp; 4 ML roles; strong technical depth; Vizag, Andhra Pradesh"
-CAND_0024620,78,0.8050,AI Engineer (5.9y); product company exp; 3 ML roles; good technical skills; New York
-CAND_0029367,79,0.8025,"Senior Data Scientist (5.7y); product company exp; 3 ML roles; good technical skills; highly active; Bangalore, Karnataka (tier-1 city)"
-CAND_0079387,80,0.8025,"AI Engineer (6.9y); product company exp; 4 ML roles; good technical skills; Trivandrum, Kerala"
-CAND_0008239,81,0.8000,"AI Engineer (4.0y); product company exp; good technical skills; Jaipur, Rajasthan"
-CAND_0051630,82,0.7980,"Machine Learning Engineer (6.0y); product company exp; 2 ML roles; strong technical depth; Kolkata, West Bengal"
-CAND_0053591,83,0.7975,AI Engineer (5.3y); product company exp; 2 ML roles; strong technical depth; Toronto
-CAND_0005649,84,0.7950,"Senior Data Scientist (7.4y); product company exp; 4 ML roles; good technical skills; Delhi, Delhi (preferred location)"
-CAND_0027691,85,0.7950,"NLP Engineer (6.5y); product company exp; 3 ML roles; strong technical depth; Pune, Maharashtra (preferred location)"
-CAND_0041568,86,0.7950,Search Engineer (5.2y); product company exp; 3 ML roles; good technical skills; Sydney
-CAND_0051004,87,0.7950,"Senior Data Scientist (4.7y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
-CAND_0064270,88,0.7950,"Applied ML Engineer (4.2y); product company exp; 2 ML roles; strong technical depth; Pune, Maharashtra (preferred location)"
-CAND_0071939,89,0.7950,"Data Scientist (6.4y); product company exp; 2 ML roles; strong technical depth; Pune, Maharashtra (preferred location)"
-CAND_0076904,90,0.7950,Senior Data Scientist (4.2y); product company exp; 2 ML roles; good technical skills; London
-CAND_0039383,91,0.7935,"Applied ML Engineer (7.1y); product company exp; 3 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
-CAND_0060072,92,0.7915,"Staff Machine Learning Engineer (5.7y); product company exp; 2 ML roles; strong technical depth; Indore, Madhya Pradesh"
-CAND_0037944,93,0.7900,"Senior Data Scientist (4.9y); product company exp; 2 ML roles; strong technical depth; Jaipur, Rajasthan"
-CAND_0007460,94,0.7875,"AI Engineer (4.7y); product company exp; strong technical depth; highly active; Pune, Maharashtra (preferred location)"
-CAND_0095619,95,0.7875,"NLP Engineer (15.6y); product company exp; good technical skills; Mumbai, Maharashtra (tier-1 city)"
-CAND_0054123,96,0.7850,"Applied ML Engineer (4.7y); product company exp; 2 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
-CAND_0068456,97,0.7850,"Data Scientist (4.8y); product company exp; 2 ML roles; good technical skills; highly active; Chennai, Tamil Nadu (tier-1 city)"
-CAND_0089552,98,0.7755,"Machine Learning Engineer (6.0y); product company exp; 2 ML roles; good technical skills; Kolkata, West Bengal"
-CAND_0088025,99,0.7735,"Staff Machine Learning Engineer (8.6y); product company exp; 3 ML roles; good technical skills; Jaipur, Rajasthan"
-CAND_0007052,100,0.7725,"ML Engineer (6.5y); product company exp; 3 ML roles; good technical skills; Pune, Maharashtra (preferred location)"
+CAND_0000031,1,0.7175,"Recommendation Systems Engineer (6.0y); product company exp; 4 ML roles; strong technical depth; highly active; Hyderabad, Telangana (tier-1 city)"
+CAND_0001031,2,0.6975,Staff Engineer (5.8y); product company exp; 4 ML roles; strong technical depth; highly active; Austin
+CAND_0002031,3,0.6975,Software Architect (7.8y); product company exp; 4 ML roles; strong technical depth; highly active; Seattle
+CAND_0001022,4,0.4250,Tech Lead (2.7y); product company exp; Mumbai (tier-1 city)
+CAND_0001049,5,0.4180,Software Architect (12.3y); product company exp; Delhi (preferred location)
+CAND_0000030,6,0.3950,"Marketing Manager (10.0y); product company exp; 2 ML roles; low activity; Kochi, Kerala"
+CAND_0001046,7,0.3900,Senior Engineer (7.8y); product company exp; Pune (preferred location)
+CAND_0000041,8,0.3882,"Operations Manager (13.7y); product company exp; Delhi, Delhi (preferred location)"
+CAND_0000014,9,0.3815,"Frontend Engineer (8.4y); product company exp; good technical skills; Hyderabad, Telangana (tier-1 city)"
+CAND_0001037,10,0.3800,Senior Developer (14.7y); product company exp; 2 ML roles; low activity; Mumbai (tier-1 city)
+CAND_0000004,11,0.3780,Marketing Manager (3.8y); product company exp; 2 ML roles; Sydney
+CAND_0002022,12,0.3750,Principal Engineer (3.1y); product company exp; Montreal
+CAND_0000037,13,0.3650,Business Analyst (14.3y); product company exp; 2 ML roles; low activity; Dubai
+CAND_0000050,14,0.3650,"Business Analyst (13.5y); product company exp; low activity; Gurgaon, Haryana (preferred location)"
+CAND_0001034,15,0.3640,Senior Engineer (15.8y); product company exp; Pune (preferred location)
+CAND_0001004,16,0.3630,Senior Developer (4.0y); product company exp; 2 ML roles; Bangalore (tier-1 city)
+CAND_0002004,17,0.3630,Lead Developer (5.6y); product company exp; 2 ML roles; Bangalore (tier-1 city)
+CAND_0000026,18,0.3600,"Graphic Designer (6.8y); product company exp; low activity; Kochi, Kerala"
+CAND_0000034,19,0.3590,"Business Analyst (14.5y); product company exp; Ahmedabad, Gujarat"
+CAND_0000046,20,0.3500,Mechanical Engineer (7.8y); product company exp; London
+CAND_0002046,21,0.3500,Senior Developer (7.6y); product company exp; Boston
+CAND_0000049,22,0.3480,Mechanical Engineer (11.8y); product company exp; Berlin
+CAND_0002049,23,0.3480,Tech Lead (12.0y); product company exp; Vancouver
+CAND_0000002,24,0.3450,"Operations Manager (12.5y); product company exp; low activity; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0002034,25,0.3440,Senior Developer (16.2y); product company exp; Mumbai (tier-1 city)
+CAND_0001014,26,0.3315,Tech Lead (8.7y); product company exp; good technical skills; Austin
+CAND_0002014,27,0.3315,Engineering Manager (10.4y); product company exp; good technical skills; Seattle
+CAND_0001030,28,0.3300,Principal Engineer (10.4y); product company exp; 2 ML roles; low activity; New York
+CAND_0002030,29,0.3300,Senior Engineer (10.3y); product company exp; 2 ML roles; low activity; Seattle
+CAND_0002037,30,0.3300,Software Architect (14.1y); product company exp; 2 ML roles; low activity; Calgary
+CAND_0000042,31,0.3250,HR Manager (5.0y); product company exp; low activity; Berlin
+CAND_0002042,32,0.3200,Tech Lead (5.1y); product company exp; low activity; Austin
+CAND_0001041,33,0.3132,Software Architect (12.8y); product company exp; San Francisco
+CAND_0002041,34,0.3132,Lead Developer (14.3y); product company exp; Vancouver
+CAND_0001042,35,0.3100,Senior Engineer (5.2y); product company exp; low activity; Hyderabad (tier-1 city)
+CAND_0002020,36,0.3100,Lead Developer (7.6y); product company exp; low activity; Mumbai (tier-1 city)
+CAND_0000007,37,0.3000,"Civil Engineer (5.5y); product company exp; highly active; Gurgaon, Haryana (preferred location)"
+CAND_0000020,38,0.2900,"Mechanical Engineer (6.3y); product company exp; low activity; Ahmedabad, Gujarat"
+CAND_0001002,39,0.2900,Tech Lead (12.4y); product company exp; low activity; Ottawa
+CAND_0002050,40,0.2900,Engineering Manager (14.4y); product company exp; low activity; Austin
+CAND_0001001,41,0.2863,Staff Engineer (8.1y); product company exp; highly active; San Francisco
+CAND_0001027,42,0.2788,Tech Lead (4.2y); Pune (preferred location)
+CAND_0000019,43,0.2750,"Project Manager (6.5y); product company exp; highly active; Trivandrum, Kerala"
+CAND_0000045,44,0.2750,"Project Manager (12.2y); product company exp; Indore, Madhya Pradesh"
+CAND_0000039,45,0.2650,"Marketing Manager (3.9y); product company exp; Bhubaneswar, Odisha"
+CAND_0000016,46,0.2600,"Accountant (5.3y); product company exp; Gurgaon, Haryana (preferred location)"
+CAND_0000024,47,0.2600,"HR Manager (7.5y); Trivandrum, Kerala"
+CAND_0001007,48,0.2600,Staff Engineer (7.3y); product company exp; highly active; Montreal
+CAND_0001020,49,0.2600,Software Architect (6.8y); product company exp; low activity; Toronto
+CAND_0001026,50,0.2600,Engineering Manager (8.8y); product company exp; low activity; Boston
+CAND_0001050,51,0.2600,Staff Engineer (13.2y); product company exp; low activity; Seattle
+CAND_0002002,52,0.2600,Lead Developer (13.4y); product company exp; low activity; San Francisco
+CAND_0002007,53,0.2600,Senior Engineer (6.8y); product company exp; highly active; Boston
+CAND_0002026,54,0.2600,Senior Engineer (7.5y); product company exp; low activity; Seattle
+CAND_0000001,55,0.2562,Backend Engineer (6.9y); product company exp; highly active; Toronto
+CAND_0002001,56,0.2562,Engineering Manager (7.5y); product company exp; highly active; San Francisco
+CAND_0000033,57,0.2560,"Graphic Designer (8.6y); product company exp; Pune, Maharashtra (preferred location)"
+CAND_0000038,58,0.2512,"Java Developer (6.7y); product company exp; Coimbatore, Tamil Nadu"
+CAND_0002025,59,0.2510,Tech Lead (8.8y); product company exp; Mumbai (tier-1 city)
+CAND_0000043,60,0.2462,"Cloud Engineer (8.3y); product company exp; good technical skills; Chandigarh, Chandigarh"
+CAND_0002043,61,0.2462,Engineering Manager (7.5y); product company exp; good technical skills; Ottawa
+CAND_0001047,62,0.2430,Engineering Manager (2.2y); Delhi (preferred location)
+CAND_0002003,63,0.2430,Engineering Manager (2.1y); Pune (preferred location)
+CAND_0001019,64,0.2400,Lead Developer (8.4y); product company exp; highly active; Calgary
+CAND_0002039,65,0.2400,Staff Engineer (3.2y); product company exp; Pune (preferred location)
+CAND_0000027,66,0.2388,"DevOps Engineer (3.9y); Kolkata, West Bengal"
+CAND_0002027,67,0.2388,Software Architect (4.1y); New York
+CAND_0000047,68,0.2380,"Project Manager (2.4y); Kochi, Kerala"
+CAND_0000025,69,0.2310,"Frontend Engineer (7.3y); product company exp; Vizag, Andhra Pradesh"
+CAND_0001045,70,0.2300,Senior Developer (12.8y); product company exp; Hyderabad (tier-1 city)
+CAND_0001038,71,0.2213,Software Architect (6.5y); product company exp; New York
+CAND_0002038,72,0.2213,Staff Engineer (8.3y); product company exp; Vancouver
+CAND_0001039,73,0.2200,Software Architect (3.1y); product company exp; Mumbai (tier-1 city)
+CAND_0002023,74,0.2200,Lead Developer (5.4y); product company exp; Bangalore (tier-1 city)
+CAND_0001043,75,0.2162,Staff Engineer (8.4y); product company exp; good technical skills; Toronto
+CAND_0000048,76,0.2150,"Mobile Developer (9.7y); product company exp; Hyderabad, Telangana (tier-1 city)"
+CAND_0001028,77,0.2150,Tech Lead (2.8y); Calgary
+CAND_0001048,78,0.2150,Senior Developer (10.0y); product company exp; Mumbai (tier-1 city)
+CAND_0002028,79,0.2150,Principal Engineer (2.5y); Toronto
+CAND_0002048,80,0.2150,Staff Engineer (10.5y); product company exp; Bangalore (tier-1 city)
+CAND_0002019,81,0.2100,Tech Lead (6.2y); product company exp; highly active; New York
+CAND_0002045,82,0.2100,Principal Engineer (12.0y); product company exp; Montreal
+CAND_0001025,83,0.2010,Senior Engineer (7.4y); product company exp; Vancouver
+CAND_0001023,84,0.2000,Senior Developer (5.6y); product company exp; Austin
+CAND_0001024,85,0.1950,Senior Developer (9.4y); Montreal
+CAND_0002024,86,0.1950,Principal Engineer (8.3y); Seattle
+CAND_0000005,87,0.1900,"Accountant (11.0y); product company exp; low activity; Gurgaon, Haryana (preferred location)"
+CAND_0000008,88,0.1900,"Operations Manager (3.6y); low activity; Noida, Uttar Pradesh (preferred location)"
+CAND_0001016,89,0.1900,Senior Engineer (6.8y); product company exp; Pune (preferred location)
+CAND_0000032,90,0.1803,".NET Developer (8.1y); product company exp; Gurgaon, Haryana (preferred location)"
+CAND_0001032,91,0.1803,Tech Lead (8.7y); product company exp; Delhi (preferred location)
+CAND_0001003,92,0.1730,Software Architect (2.9y); Ottawa
+CAND_0002047,93,0.1730,Tech Lead (2.3y); Toronto
+CAND_0000017,94,0.1700,"Accountant (12.3y); product company exp; low activity; Bangalore, Karnataka (tier-1 city)"
+CAND_0000023,95,0.1700,Software Engineer (3.7y); product company exp; New York
+CAND_0002021,96,0.1700,Lead Developer (15.2y); product company exp; strong technical depth; low activity; Mumbai (tier-1 city)
+CAND_0000011,97,0.1603,"QA Engineer (2.0y); product company exp; Hyderabad, Telangana (tier-1 city)"
+CAND_0001011,98,0.1603,Senior Engineer (3.7y); product company exp; Hyderabad (tier-1 city)
+CAND_0002032,99,0.1603,Engineering Manager (9.9y); product company exp; Mumbai (tier-1 city)
+CAND_0000029,100,0.1550,"Business Analyst (7.2y); product company exp; low activity; Noida, Uttar Pradesh (preferred location)"

@@ -7,10 +7,11 @@ from pathlib import Path
 # Base paths
 BASE_DIR = Path(__file__).parent.parent
 DATASET_DIR = BASE_DIR / "datasets" / "[PUB] India_runs_data_and_ai_challenge" / "India_runs_data_and_ai_challenge"
+DATA_DIR = BASE_DIR / "backend" / "data"
 OUTPUT_DIR = BASE_DIR / "output"
 
 # Dataset files
-CANDIDATES_FILE = DATASET_DIR / "candidates.jsonl"
+CANDIDATES_FILE = DATA_DIR / "candidates.json"
 JOB_DESCRIPTION_FILE = DATASET_DIR / "job_description.docx"
 CANDIDATE_SCHEMA_FILE = DATASET_DIR / "candidate_schema.json"
 SAMPLE_CANDIDATES_FILE = DATASET_DIR / "sample_candidates.json"
@@ -66,6 +67,7 @@ FLASK_HOST = "0.0.0.0"
 FLASK_PORT = int(os.environ.get("PORT", 5000))
 FLASK_DEBUG = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
 
-# Create output directory if it doesn't exist
+# Create directories if they don't exist
 OUTPUT_DIR.mkdir(exist_ok=True)
+DATA_DIR.mkdir(exist_ok=True)
 
