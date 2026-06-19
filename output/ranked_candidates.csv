@@ -1,101 +1,101 @@
 candidate_id,rank,score,reasoning
-CAND_0077337,1,0.7618,"Staff Machine Learning Engineer with 7.0 yrs; 5 core AI/ML skills; response rate 0.95; recently active; Kochi, Kerala-based."
-CAND_0018499,2,0.7581,"Senior Machine Learning Engineer with 7.2 yrs; 5 core AI/ML skills; response rate 0.61; Noida, Uttar Pradesh-based."
-CAND_0081846,3,0.7380,"Lead AI Engineer with 6.7 yrs; 5 core AI/ML skills; response rate 0.73; Jaipur, Rajasthan-based."
-CAND_0042100,4,0.7257,Machine Learning Engineer with 7.3 yrs; 2 core AI/ML skills; response rate 0.87; Singapore-based.
-CAND_0020877,5,0.7183,"Applied ML Engineer with 5.1 yrs; 6 core AI/ML skills; response rate 0.66; Gurgaon, Haryana-based."
-CAND_0071974,6,0.7159,"Senior AI Engineer with 7.8 yrs; 6 core AI/ML skills; response rate 0.76; Vizag, Andhra Pradesh-based."
-CAND_0058688,7,0.7122,AI Engineer with 6.7 yrs; 3 core AI/ML skills; response rate 0.74; Berlin-based.
-CAND_0011125,8,0.7068,"Junior ML Engineer with 6.6 yrs; 4 core AI/ML skills; response rate 0.58; Bangalore, Karnataka-based."
-CAND_0070398,9,0.7062,"Machine Learning Engineer with 7.2 yrs; 4 core AI/ML skills; response rate 0.60; Kochi, Kerala-based."
-CAND_0050876,10,0.7053,"Applied ML Engineer with 6.0 yrs; 4 core AI/ML skills; response rate 0.67; recently active; Kolkata, West Bengal-based."
-CAND_0091909,11,0.7025,"Machine Learning Engineer (6.9 yrs); 3 required skills matched; good engagement (0.65); located in Bangalore, Karnataka."
-CAND_0080766,12,0.6994,"Staff Machine Learning Engineer (8.8 yrs); 5 required skills matched; good engagement (0.66); located in Coimbatore, Tamil Nadu."
-CAND_0041669,13,0.6980,"Recommendation Systems Engineer (8.0 yrs); 5 required skills matched; good engagement (0.77); located in Noida, Uttar Pradesh."
-CAND_0050454,14,0.6969,"AI Engineer (6.8 yrs); 2 required skills matched; good engagement (0.77); located in Delhi, Delhi."
-CAND_0044855,15,0.6967,"Senior Data Scientist (6.6 yrs); 5 required skills matched; good engagement (0.57); located in Coimbatore, Tamil Nadu."
-CAND_0068351,16,0.6953,"Lead AI Engineer (6.4 yrs); 5 required skills matched; good engagement (0.86); located in Delhi, Delhi."
-CAND_0015578,17,0.6931,"AI Engineer (5.4 yrs); 3 required skills matched; good engagement (0.65); located in Delhi, Delhi."
-CAND_0016163,18,0.6928,"Applied ML Engineer (6.7 yrs); 3 required skills matched; good engagement (0.72); located in Gurgaon, Haryana."
-CAND_0037566,19,0.6928,"Machine Learning Engineer (6.9 yrs); 2 required skills matched; moderate engagement (0.50); located in Bangalore, Karnataka."
-CAND_0011162,20,0.6908,"Recommendation Systems Engineer (5.8 yrs); 7 required skills matched; good engagement (0.75); located in Coimbatore, Tamil Nadu."
-CAND_0047721,21,0.6904,"Senior Data Scientist (7.0 yrs); 4 required skills matched; moderate engagement (0.49); located in Coimbatore, Tamil Nadu."
-CAND_0039383,22,0.6901,"Applied ML Engineer (7.1 yrs); 2 required skills matched; good engagement (0.61); located in Gurgaon, Haryana."
-CAND_0044222,23,0.6897,"AI Engineer (7.7 yrs); 3 required skills matched; good engagement (0.60); located in Vizag, Andhra Pradesh."
-CAND_0007009,24,0.6887,"Recommendation Systems Engineer (7.9 yrs); 4 required skills matched; good engagement (0.62); located in Noida, Uttar Pradesh."
-CAND_0072660,25,0.6880,Machine Learning Engineer (7.1 yrs); 5 required skills matched; good engagement (0.53); located in Berlin.
-CAND_0009691,26,0.6878,"Applied ML Engineer (6.2 yrs); 3 required skills matched; good engagement (0.64); located in Indore, Madhya Pradesh."
-CAND_0068811,27,0.6870,"Applied ML Engineer (8.0 yrs); 5 required skills matched; moderate engagement (0.42); located in Pune, Maharashtra."
-CAND_0072688,28,0.6867,"Data Scientist (6.9 yrs); 2 required skills matched; good engagement (0.87); located in Pune, Maharashtra."
-CAND_0006418,29,0.6849,"Machine Learning Engineer (5.7 yrs); 5 required skills matched; good engagement (0.92); located in Gurgaon, Haryana."
-CAND_0079387,30,0.6843,"AI Engineer (6.9 yrs); 2 required skills matched; good engagement (0.81); located in Trivandrum, Kerala."
-CAND_0010149,31,0.6828,"ML Engineer (6.9 yrs); 2 required skills matched; good engagement (0.82); located in Bangalore, Karnataka."
-CAND_0073982,32,0.6826,"Data Scientist (7.0 yrs); 3 required skills matched; good engagement (0.65); located in Delhi, Delhi."
-CAND_0061265,33,0.6811,"Recommendation Systems Engineer (6.6 yrs); 3 required skills matched; good engagement (0.94); located in Delhi, Delhi."
-CAND_0093193,34,0.6801,"Senior Machine Learning Engineer (7.9 yrs); 4 required skills matched; good engagement (0.61); located in Bangalore, Karnataka."
-CAND_0066999,35,0.6790,"Recommendation Systems Engineer (5.9 yrs); 5 required skills matched; good engagement (0.63); located in Delhi, Delhi."
-CAND_0051004,36,0.6786,"Senior Data Scientist (4.7 yrs); 2 required skills matched; moderate engagement (0.41); located in Delhi, Delhi."
-CAND_0099806,37,0.6775,"AI Engineer (4.6 yrs); 5 required skills matched; good engagement (0.76); located in Bhubaneswar, Odisha."
-CAND_0006557,38,0.6762,"NLP Engineer (7.9 yrs); 7 required skills matched; good engagement (0.63); located in Jaipur, Rajasthan."
-CAND_0054100,39,0.6751,"Junior ML Engineer (6.0 yrs); 2 required skills matched; good engagement (0.79); located in Kolkata, West Bengal."
-CAND_0010257,40,0.6747,"Senior Data Scientist (6.5 yrs); 4 required skills matched; good engagement (0.72); located in Noida, Uttar Pradesh."
-CAND_0002025,41,0.6741,"Senior AI Engineer (5.9 yrs); 5 required skills matched; good engagement (0.80); located in Trivandrum, Kerala."
-CAND_0018549,42,0.6734,"Recommendation Systems Engineer (6.8 yrs); 5 required skills matched; good engagement (0.73); located in Coimbatore, Tamil Nadu."
-CAND_0067041,43,0.6726,"Data Scientist (6.9 yrs); 3 required skills matched; moderate engagement (0.34); located in Noida, Uttar Pradesh."
-CAND_0020991,44,0.6716,"Junior ML Engineer (4.9 yrs); 3 required skills matched; good engagement (0.88); located in Vizag, Andhra Pradesh."
-CAND_0046525,45,0.6699,"Senior Machine Learning Engineer (6.1 yrs); 3 required skills matched; good engagement (0.88); located in Pune, Maharashtra."
-CAND_0043228,46,0.6697,"Applied ML Engineer (6.8 yrs); 2 required skills matched; moderate engagement (0.41); located in Chennai, Tamil Nadu."
-CAND_0045250,47,0.6697,"Applied ML Engineer (6.6 yrs); 3 required skills matched; good engagement (0.74); located in Delhi, Delhi."
-CAND_0087630,48,0.6695,"AI Engineer (7.2 yrs); 3 required skills matched; moderate engagement (0.45); located in Gurgaon, Haryana."
-CAND_0059017,49,0.6694,"AI Research Engineer (6.8 yrs); 2 required skills matched; good engagement (0.75); located in Ahmedabad, Gujarat."
-CAND_0098846,50,0.6694,"AI Engineer (7.6 yrs); 1 required skills matched; good engagement (0.62); located in Indore, Madhya Pradesh."
-CAND_0076482,51,0.6676,ML Engineer with 6.6 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0014440,52,0.6661,Recommendation Systems Engineer with 6.4 yrs; 4 skill matches; potential fit with development.
-CAND_0074731,53,0.6657,Data Scientist with 6.6 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0096142,54,0.6651,Applied ML Engineer with 5.0 yrs; 3 skill matches; potential fit with development.
-CAND_0046353,55,0.6641,ML Engineer with 6.4 yrs; 3 skill matches; potential fit with development.
-CAND_0061257,56,0.6629,Staff Machine Learning Engineer with 8.0 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0074225,57,0.6625,Machine Learning Engineer with 4.3 yrs; 4 skill matches; potential fit with development.
-CAND_0008978,58,0.6619,Junior ML Engineer with 6.7 yrs; 4 skill matches; lower response rate; less recent activity; potential fit with development.
-CAND_0055905,59,0.6599,Senior Machine Learning Engineer with 8.1 yrs; 5 skill matches; potential fit with development.
-CAND_0037944,60,0.6579,Senior Data Scientist with 4.9 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0007412,61,0.6578,Applied ML Engineer with 7.4 yrs; 2 skill matches; potential fit with development.
-CAND_0053527,62,0.6573,Junior ML Engineer with 7.0 yrs; 2 skill matches; potential fit with development.
-CAND_0027691,63,0.6566,NLP Engineer with 6.5 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0005538,64,0.6564,Senior AI Engineer with 5.9 yrs; 2 skill matches; potential fit with development.
-CAND_0032216,65,0.6558,ML Engineer with 6.1 yrs; 2 skill matches; potential fit with development.
-CAND_0083852,66,0.6558,Data Scientist with 6.0 yrs; 3 skill matches; potential fit with development.
-CAND_0058426,67,0.6541,Data Scientist with 6.5 yrs; 1 skill matches; potential fit with development.
-CAND_0048558,68,0.6537,Data Scientist with 6.7 yrs; 4 skill matches; potential fit with development.
-CAND_0028793,69,0.6521,Search Engineer with 7.2 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0018701,70,0.6509,Junior ML Engineer with 6.0 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0098288,71,0.6509,Junior ML Engineer with 6.7 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0079064,72,0.6497,Senior Data Scientist with 5.2 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0015528,73,0.6493,Applied ML Engineer with 7.4 yrs; 4 skill matches; less recent activity; potential fit with development.
-CAND_0067609,74,0.6493,Junior ML Engineer with 4.5 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0069905,75,0.6492,Applied ML Engineer with 6.6 yrs; 2 skill matches; potential fit with development.
-CAND_0086154,76,0.6483,Data Scientist with 6.8 yrs; 2 skill matches; potential fit with development.
-CAND_0083879,77,0.6482,Machine Learning Engineer with 7.1 yrs; 1 skill matches; less recent activity; potential fit with development.
-CAND_0024620,78,0.6479,AI Engineer with 5.9 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0030031,79,0.6475,AI Engineer with 5.7 yrs; 3 skill matches; potential fit with development.
-CAND_0093547,80,0.6470,Senior Machine Learning Engineer with 2.9 yrs; 5 skill matches; less recent activity; potential fit with development.
-CAND_0086801,81,0.6467,Computer Vision Engineer with 6.6 yrs; 1 skill matches; less recent activity; potential fit with development.
-CAND_0099269,82,0.6466,Data Scientist with 5.5 yrs; 3 skill matches; potential fit with development.
-CAND_0005649,83,0.6456,Senior Data Scientist with 7.4 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0042029,84,0.6455,Senior Data Scientist with 6.5 yrs; 4 skill matches; less recent activity; potential fit with development.
-CAND_0030946,85,0.6449,Junior ML Engineer with 6.7 yrs; 3 skill matches; potential fit with development.
-CAND_0027801,86,0.6448,NLP Engineer with 7.4 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0070463,87,0.6435,Data Scientist with 4.1 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0071939,88,0.6432,Data Scientist with 6.4 yrs; 4 skill matches; less recent activity; potential fit with development.
-CAND_0090155,89,0.6429,ML Engineer with 5.8 yrs; 3 skill matches; potential fit with development.
-CAND_0033445,90,0.6423,ML Engineer with 6.8 yrs; 1 skill matches; potential fit with development.
-CAND_0065514,91,0.6423,ML Engineer with 6.6 yrs; 4 skill matches; potential fit with development.
-CAND_0064888,92,0.6414,ML Engineer with 5.8 yrs; 2 skill matches; potential fit with development.
-CAND_0052682,93,0.6411,NLP Engineer with 6.6 yrs; 3 skill matches; less recent activity; potential fit with development.
-CAND_0052328,94,0.6404,Recommendation Systems Engineer with 6.5 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0067866,95,0.6399,Senior Software Engineer (ML) with 6.4 yrs; 3 skill matches; potential fit with development.
-CAND_0011687,96,0.6396,Senior NLP Engineer with 7.8 yrs; 4 skill matches; potential fit with development.
-CAND_0038368,97,0.6391,ML Engineer with 5.4 yrs; 2 skill matches; less recent activity; potential fit with development.
-CAND_0062247,98,0.6388,AI Engineer with 7.3 yrs; 3 skill matches; potential fit with development.
-CAND_0099443,99,0.6382,Junior ML Engineer with 6.0 yrs; 1 skill matches; potential fit with development.
-CAND_0007460,100,0.6381,AI Engineer with 4.7 yrs; 3 skill matches; potential fit with development.
+CAND_0077337,1,0.9900,"Staff Machine Learning Engineer (7.0y); product company exp; 4 ML roles; good technical skills; highly active; Kochi, Kerala"
+CAND_0081846,2,0.9900,"Lead AI Engineer (6.7y); product company exp; 2 ML roles; strong technical depth; Jaipur, Rajasthan"
+CAND_0068351,3,0.9800,"Lead AI Engineer (6.4y); product company exp; 3 ML roles; good technical skills; Delhi, Delhi (preferred location)"
+CAND_0018499,4,0.9700,"Senior Machine Learning Engineer (7.2y); product company exp; 3 ML roles; strong technical depth; Noida, Uttar Pradesh (preferred location)"
+CAND_0002025,5,0.9600,"Senior AI Engineer (5.9y); product company exp; 2 ML roles; good technical skills; highly active; Trivandrum, Kerala"
+CAND_0071974,6,0.9500,"Senior AI Engineer (7.8y); product company exp; 3 ML roles; strong technical depth; Vizag, Andhra Pradesh"
+CAND_0046064,7,0.9425,"Senior NLP Engineer (8.9y); product company exp; 3 ML roles; good technical skills; Coimbatore, Tamil Nadu"
+CAND_0068811,8,0.9300,"Applied ML Engineer (8.0y); product company exp; 4 ML roles; strong technical depth; highly active; Pune, Maharashtra (preferred location)"
+CAND_0080766,9,0.9300,"Staff Machine Learning Engineer (8.8y); product company exp; 4 ML roles; good technical skills; Coimbatore, Tamil Nadu"
+CAND_0093193,10,0.9300,"Senior Machine Learning Engineer (7.9y); product company exp; 2 ML roles; good technical skills; Bangalore, Karnataka (tier-1 city)"
+CAND_0006418,11,0.9200,"Machine Learning Engineer (5.7y); product company exp; 2 ML roles; strong technical depth; Gurgaon, Haryana (preferred location)"
+CAND_0039754,12,0.9200,"Senior Applied Scientist (16.2y); product company exp; 3 ML roles; good technical skills; Indore, Madhya Pradesh"
+CAND_0099806,13,0.9200,"AI Engineer (4.6y); product company exp; 2 ML roles; strong technical depth; Bhubaneswar, Odisha"
+CAND_0018549,14,0.9100,"Recommendation Systems Engineer (6.8y); product company exp; 2 ML roles; good technical skills; Coimbatore, Tamil Nadu"
+CAND_0030468,15,0.9100,"Senior Applied Scientist (5.4y); product company exp; 2 ML roles; good technical skills; Indore, Madhya Pradesh"
+CAND_0036437,16,0.9000,"Search Engineer (4.8y); product company exp; 3 ML roles; good technical skills; Kolkata, West Bengal"
+CAND_0066999,17,0.9000,"Recommendation Systems Engineer (5.9y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
+CAND_0074225,18,0.9000,"Machine Learning Engineer (4.3y); product company exp; 2 ML roles; good technical skills; highly active; Vizag, Andhra Pradesh"
+CAND_0042506,19,0.8925,"Search Engineer (4.2y); product company exp; 2 ML roles; good technical skills; highly active; Mumbai, Maharashtra (tier-1 city)"
+CAND_0011162,20,0.8910,"Recommendation Systems Engineer (5.8y); product company exp; 3 ML roles; strong technical depth; Coimbatore, Tamil Nadu"
+CAND_0011687,21,0.8900,"Senior NLP Engineer (7.8y); product company exp; 2 ML roles; strong technical depth; Indore, Madhya Pradesh"
+CAND_0041610,22,0.8900,"Recommendation Systems Engineer (6.7y); product company exp; 4 ML roles; strong technical depth; Indore, Madhya Pradesh"
+CAND_0049538,23,0.8900,"Applied ML Engineer (5.8y); product company exp; 3 ML roles; strong technical depth; highly active; Jaipur, Rajasthan"
+CAND_0061655,24,0.8900,"Machine Learning Engineer (4.6y); product company exp; 2 ML roles; good technical skills; highly active; Jaipur, Rajasthan"
+CAND_0086022,25,0.8900,"Senior Applied Scientist (5.3y); product company exp; 2 ML roles; strong technical depth; Kolkata, West Bengal"
+CAND_0041669,26,0.8850,"Recommendation Systems Engineer (8.0y); product company exp; 3 ML roles; good technical skills; Noida, Uttar Pradesh (preferred location)"
+CAND_0079064,27,0.8835,"Senior Data Scientist (5.2y); product company exp; 2 ML roles; good technical skills; Noida, Uttar Pradesh (preferred location)"
+CAND_0055992,28,0.8800,AI Engineer (16.9y); product company exp; 4 ML roles; strong technical depth; Sydney
+CAND_0076163,29,0.8800,"NLP Engineer (6.9y); product company exp; 2 ML roles; good technical skills; Chandigarh, Chandigarh"
+CAND_0081053,30,0.8735,"NLP Engineer (5.4y); product company exp; 2 ML roles; good technical skills; Chandigarh, Chandigarh"
+CAND_0078492,31,0.8725,"Recommendation Systems Engineer (5.1y); product company exp; 2 ML roles; good technical skills; Kochi, Kerala"
+CAND_0087364,32,0.8700,"Recommendation Systems Engineer (4.9y); product company exp; 2 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
+CAND_0010257,33,0.8660,"Senior Data Scientist (6.5y); product company exp; 3 ML roles; good technical skills; Noida, Uttar Pradesh (preferred location)"
+CAND_0013536,34,0.8610,"Applied ML Engineer (14.1y); product company exp; 2 ML roles; strong technical depth; Trivandrum, Kerala"
+CAND_0039838,35,0.8610,"Recommendation Systems Engineer (4.9y); product company exp; 2 ML roles; strong technical depth; Kochi, Kerala"
+CAND_0074735,36,0.8610,"Applied ML Engineer (5.5y); product company exp; 3 ML roles; good technical skills; Chandigarh, Chandigarh"
+CAND_0084819,37,0.8610,"Search Engineer (4.5y); product company exp; 2 ML roles; good technical skills; Indore, Madhya Pradesh"
+CAND_0055905,38,0.8600,Senior Machine Learning Engineer (8.1y); product company exp; 3 ML roles; strong technical depth; London
+CAND_0072660,39,0.8600,Machine Learning Engineer (7.1y); product company exp; 3 ML roles; good technical skills; highly active; Berlin
+CAND_0075574,40,0.8600,"Machine Learning Engineer (5.7y); product company exp; 3 ML roles; good technical skills; Bangalore, Karnataka (tier-1 city)"
+CAND_0093912,41,0.8600,"Senior Data Scientist (5.3y); product company exp; 3 ML roles; strong technical depth; Chandigarh, Chandigarh"
+CAND_0089947,42,0.8570,"Junior ML Engineer (5.4y); product company exp; 2 ML roles; strong technical depth; highly active; Noida, Uttar Pradesh (preferred location)"
+CAND_0006557,43,0.8550,"NLP Engineer (7.9y); product company exp; 2 ML roles; good technical skills; Jaipur, Rajasthan"
+CAND_0086151,44,0.8550,"Recommendation Systems Engineer (7.7y); product company exp; 3 ML roles; strong technical depth; Vizag, Andhra Pradesh"
+CAND_0020877,45,0.8500,"Applied ML Engineer (5.1y); product company exp; 2 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
+CAND_0042029,46,0.8500,"Senior Data Scientist (6.5y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
+CAND_0009024,47,0.8450,"Search Engineer (5.2y); product company exp; 2 ML roles; good technical skills; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0026532,48,0.8450,"Recommendation Systems Engineer (4.8y); product company exp; 2 ML roles; strong technical depth; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0042100,49,0.8435,Machine Learning Engineer (7.3y); product company exp; 2 ML roles; good technical skills; Singapore
+CAND_0052328,50,0.8425,"Recommendation Systems Engineer (6.5y); product company exp; 2 ML roles; good technical skills; Pune, Maharashtra (preferred location)"
+CAND_0081852,51,0.8425,"Senior Data Scientist (5.9y); product company exp; 2 ML roles; good technical skills; highly active; Delhi, Delhi (preferred location)"
+CAND_0094759,52,0.8425,"Lead AI Engineer (8.6y); product company exp; 3 ML roles; good technical skills; Mumbai, Maharashtra (tier-1 city)"
+CAND_0044855,53,0.8400,"Senior Data Scientist (6.6y); product company exp; 3 ML roles; strong technical depth; Coimbatore, Tamil Nadu"
+CAND_0060054,54,0.8400,"AI Engineer (6.4y); product company exp; 3 ML roles; good technical skills; Jaipur, Rajasthan"
+CAND_0095528,55,0.8400,"Senior Data Scientist (5.3y); product company exp; 2 ML roles; good technical skills; Indore, Madhya Pradesh"
+CAND_0036184,56,0.8375,"Recommendation Systems Engineer (6.0y); product company exp; 2 ML roles; strong technical depth; highly active; Trivandrum, Kerala"
+CAND_0056881,57,0.8340,"Machine Learning Engineer (4.5y); product company exp; 2 ML roles; good technical skills; Trivandrum, Kerala"
+CAND_0003575,58,0.8325,"Data Scientist (3.7y); product company exp; 2 ML roles; strong technical depth; highly active; Ahmedabad, Gujarat"
+CAND_0062247,59,0.8325,"AI Engineer (7.3y); product company exp; 2 ML roles; good technical skills; Kochi, Kerala"
+CAND_0015528,60,0.8300,"Applied ML Engineer (7.4y); product company exp; 3 ML roles; good technical skills; Coimbatore, Tamil Nadu"
+CAND_0075439,61,0.8300,"Machine Learning Engineer (4.3y); product company exp; 2 ML roles; strong technical depth; Vizag, Andhra Pradesh"
+CAND_0096172,62,0.8300,"NLP Engineer (5.2y); product company exp; 2 ML roles; good technical skills; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0027801,63,0.8275,"NLP Engineer (7.4y); product company exp; 3 ML roles; good technical skills; Hyderabad, Telangana (tier-1 city)"
+CAND_0064904,64,0.8270,"AI Engineer (4.9y); product company exp; 2 ML roles; strong technical depth; Hyderabad, Telangana (tier-1 city)"
+CAND_0014440,65,0.8250,"Recommendation Systems Engineer (6.4y); product company exp; 3 ML roles; good technical skills; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0043228,66,0.8225,"Applied ML Engineer (6.8y); product company exp; 3 ML roles; good technical skills; highly active; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0045250,67,0.8225,"Applied ML Engineer (6.6y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
+CAND_0025640,68,0.8200,"AI Research Engineer (5.6y); product company exp; 2 ML roles; good technical skills; Jaipur, Rajasthan"
+CAND_0058688,69,0.8200,AI Engineer (6.7y); product company exp; 2 ML roles; strong technical depth; Berlin
+CAND_0079284,70,0.8200,"Machine Learning Engineer (4.9y); product company exp; 2 ML roles; good technical skills; Hyderabad, Telangana (tier-1 city)"
+CAND_0047327,71,0.8150,"Junior ML Engineer (5.0y); product company exp; 3 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
+CAND_0061265,72,0.8135,"Recommendation Systems Engineer (6.6y); product company exp; 3 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
+CAND_0099401,73,0.8120,"NLP Engineer (7.7y); product company exp; 4 ML roles; strong technical depth; highly active; Ahmedabad, Gujarat"
+CAND_0057563,74,0.8100,"NLP Engineer (6.8y); product company exp; 3 ML roles; good technical skills; Indore, Madhya Pradesh"
+CAND_0008425,75,0.8075,"Senior NLP Engineer (7.8y); product company exp; 3 ML roles; good technical skills; Kolkata, West Bengal"
+CAND_0046525,76,0.8075,"Senior Machine Learning Engineer (6.1y); product company exp; 2 ML roles; good technical skills; highly active; Pune, Maharashtra (preferred location)"
+CAND_0083307,77,0.8075,"Search Engineer (7.8y); product company exp; 4 ML roles; strong technical depth; Vizag, Andhra Pradesh"
+CAND_0024620,78,0.8050,AI Engineer (5.9y); product company exp; 3 ML roles; good technical skills; New York
+CAND_0029367,79,0.8025,"Senior Data Scientist (5.7y); product company exp; 3 ML roles; good technical skills; highly active; Bangalore, Karnataka (tier-1 city)"
+CAND_0079387,80,0.8025,"AI Engineer (6.9y); product company exp; 4 ML roles; good technical skills; Trivandrum, Kerala"
+CAND_0008239,81,0.8000,"AI Engineer (4.0y); product company exp; good technical skills; Jaipur, Rajasthan"
+CAND_0051630,82,0.7980,"Machine Learning Engineer (6.0y); product company exp; 2 ML roles; strong technical depth; Kolkata, West Bengal"
+CAND_0053591,83,0.7975,AI Engineer (5.3y); product company exp; 2 ML roles; strong technical depth; Toronto
+CAND_0005649,84,0.7950,"Senior Data Scientist (7.4y); product company exp; 4 ML roles; good technical skills; Delhi, Delhi (preferred location)"
+CAND_0027691,85,0.7950,"NLP Engineer (6.5y); product company exp; 3 ML roles; strong technical depth; Pune, Maharashtra (preferred location)"
+CAND_0041568,86,0.7950,Search Engineer (5.2y); product company exp; 3 ML roles; good technical skills; Sydney
+CAND_0051004,87,0.7950,"Senior Data Scientist (4.7y); product company exp; 2 ML roles; strong technical depth; Delhi, Delhi (preferred location)"
+CAND_0064270,88,0.7950,"Applied ML Engineer (4.2y); product company exp; 2 ML roles; strong technical depth; Pune, Maharashtra (preferred location)"
+CAND_0071939,89,0.7950,"Data Scientist (6.4y); product company exp; 2 ML roles; strong technical depth; Pune, Maharashtra (preferred location)"
+CAND_0076904,90,0.7950,Senior Data Scientist (4.2y); product company exp; 2 ML roles; good technical skills; London
+CAND_0039383,91,0.7935,"Applied ML Engineer (7.1y); product company exp; 3 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
+CAND_0060072,92,0.7915,"Staff Machine Learning Engineer (5.7y); product company exp; 2 ML roles; strong technical depth; Indore, Madhya Pradesh"
+CAND_0037944,93,0.7900,"Senior Data Scientist (4.9y); product company exp; 2 ML roles; strong technical depth; Jaipur, Rajasthan"
+CAND_0007460,94,0.7875,"AI Engineer (4.7y); product company exp; strong technical depth; highly active; Pune, Maharashtra (preferred location)"
+CAND_0095619,95,0.7875,"NLP Engineer (15.6y); product company exp; good technical skills; Mumbai, Maharashtra (tier-1 city)"
+CAND_0054123,96,0.7850,"Applied ML Engineer (4.7y); product company exp; 2 ML roles; good technical skills; Gurgaon, Haryana (preferred location)"
+CAND_0068456,97,0.7850,"Data Scientist (4.8y); product company exp; 2 ML roles; good technical skills; highly active; Chennai, Tamil Nadu (tier-1 city)"
+CAND_0089552,98,0.7755,"Machine Learning Engineer (6.0y); product company exp; 2 ML roles; good technical skills; Kolkata, West Bengal"
+CAND_0088025,99,0.7735,"Staff Machine Learning Engineer (8.6y); product company exp; 3 ML roles; good technical skills; Jaipur, Rajasthan"
+CAND_0007052,100,0.7725,"ML Engineer (6.5y); product company exp; 3 ML roles; good technical skills; Pune, Maharashtra (preferred location)"

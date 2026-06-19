@@ -7,6 +7,7 @@ from typing import List, Dict, Any, Tuple
 from pathlib import Path
 
 from .scorer import CandidateScorer
+from .semantic_scorer import SemanticCandidateScorer
 from .honeypot_detector import HoneypotDetector
 
 logging.basicConfig(level=logging.INFO)
@@ -16,9 +17,18 @@ logger = logging.getLogger(__name__)
 class CandidateRanker:
     """Main ranking pipeline"""
     
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(self, config: Dict[str, Any], use_semantic=True):
         self.config = config
-        self.scorer = CandidateScorer(config)
+        self.use_semantic = use_semantic
+        
+        # Use semantic scorer by default (reads between the lines)
+        if use_semantic:
+            self.scorer = SemanticCandidateScorer(config)
+            logger.info("Using SemanticCandidateScorer (AI-powered analysis)")
+        else:
+            self.scorer = CandidateScorer(config)
+            logger.info("Using basic CandidateScorer (keyword matching)")
+        
         self.honeypot_detector = HoneypotDetector()
         self.ranked_candidates = []
     
@@ -35,45 +45,88 @@ class CandidateRanker:
             Reasoning string
         """
         profile = candidate.get("profile", {})
-        skills_details = score_details.get("skills", {})
-        exp_details = score_details.get("experience", {})
-        signals_details = score_details.get("signals", {})
         
-        # Extract key facts
-        title = profile.get("current_title", "Unknown")
-        years_exp = profile.get("years_of_experience", 0)
-        location = profile.get("location", "Unknown")
-        
-        required_matches = skills_details.get("required_matches", 0)
-        response_rate = signals_details.get("response_rate", 0)
-        days_since_active = signals_details.get("days_since_active", 999)
-        
-        # Build reasoning based on rank tier
-        if rank <= 10:
-            # Top 10: Emphasize strengths
-            reasoning = f"{title} with {years_exp:.1f} yrs; {required_matches} core AI/ML skills; "
-            reasoning += f"response rate {response_rate:.2f}; "
-            if days_since_active < 30:
-                reasoning += "recently active; "
-            reasoning += f"{location}-based."
-        elif rank <= 50:
-            # Top 50: Balanced view
-            reasoning = f"{title} ({years_exp:.1f} yrs); {required_matches} required skills matched; "
-            if response_rate > 0.5:
-                reasoning += f"good engagement ({response_rate:.2f}); "
+        # Check if using semantic scoring
+        if score_details.get("scoring_method") == "semantic_analysis":
+            # Use semantic details
+            career = score_details.get("career", {})
+            tech_depth = score_details.get("technical_depth", {})
+            availability = score_details.get("availability", {})
+            location = score_details.get("location", {})
+            
+            title = profile.get("current_title", "Unknown")
+            years_exp = profile.get("years_of_experience", 0)
+            loc = profile.get("location", "Unknown")
+            
+            # Build semantic reasoning
+            reasoning = f"{title} ({years_exp:.1f}y); "
+            
+            # Career highlights
+            if career.get("has_product_company_exp"):
+                reasoning += "product company exp; "
+            if career.get("ml_roles_count", 0) >= 2:
+                reasoning += f"{career.get('ml_roles_count')} ML roles; "
+            
+            # Technical depth
+            if tech_depth.get("categories_with_depth", 0) >= 3:
+                reasoning += "strong technical depth; "
+            elif tech_depth.get("categories_with_depth", 0) >= 2:
+                reasoning += "good technical skills; "
+            
+            # Availability
+            avail_status = availability.get("availability_status", "")
+            if "highly_active" in avail_status:
+                reasoning += "highly active; "
+            elif "inactive" in avail_status:
+                reasoning += "low activity; "
+            
+            # Location
+            loc_match = location.get("location_match", "")
+            if loc_match == "preferred":
+                reasoning += f"{loc} (preferred location)"
+            elif loc_match == "tier1":
+                reasoning += f"{loc} (tier-1 city)"
             else:
-                reasoning += f"moderate engagement ({response_rate:.2f}); "
-            reasoning += f"located in {location}."
-        else:
-            # 51-100: Acknowledge gaps
-            reasoning = f"{title} with {years_exp:.1f} yrs; {required_matches} skill matches; "
-            if response_rate < 0.3:
-                reasoning += "lower response rate; "
-            if days_since_active > 60:
-                reasoning += "less recent activity; "
-            reasoning += "potential fit with development."
+                reasoning += f"{loc}"
+            
+            return reasoning[:200]
         
-        return reasoning[:200]  # Limit length
+        else:
+            # Use basic scoring details
+            skills_details = score_details.get("skills", {})
+            exp_details = score_details.get("experience", {})
+            signals_details = score_details.get("signals", {})
+            
+            title = profile.get("current_title", "Unknown")
+            years_exp = profile.get("years_of_experience", 0)
+            location = profile.get("location", "Unknown")
+            
+            required_matches = skills_details.get("required_matches", 0)
+            response_rate = signals_details.get("response_rate", 0)
+            days_since_active = signals_details.get("days_since_active", 999)
+            
+            if rank <= 10:
+                reasoning = f"{title} with {years_exp:.1f} yrs; {required_matches} core AI/ML skills; "
+                reasoning += f"response rate {response_rate:.2f}; "
+                if days_since_active < 30:
+                    reasoning += "recently active; "
+                reasoning += f"{location}-based."
+            elif rank <= 50:
+                reasoning = f"{title} ({years_exp:.1f} yrs); {required_matches} required skills matched; "
+                if response_rate > 0.5:
+                    reasoning += f"good engagement ({response_rate:.2f}); "
+                else:
+                    reasoning += f"moderate engagement ({response_rate:.2f}); "
+                reasoning += f"located in {location}."
+            else:
+                reasoning = f"{title} with {years_exp:.1f} yrs; {required_matches} skill matches; "
+                if response_rate < 0.3:
+                    reasoning += "lower response rate; "
+                if days_since_active > 60:
+                    reasoning += "less recent activity; "
+                reasoning += "potential fit with development."
+            
+            return reasoning[:200]
     
     def rank_candidates(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """
@@ -101,9 +154,12 @@ class CandidateRanker:
                 logger.debug(f"Skipping honeypot: {candidate_id}")
                 continue
             
-            # Calculate composite score
+            # Calculate composite score using appropriate method
             try:
-                composite_score, score_details = self.scorer.calculate_composite_score(candidate)
+                if self.use_semantic:
+                    composite_score, score_details = self.scorer.calculate_semantic_score(candidate)
+                else:
+                    composite_score, score_details = self.scorer.calculate_composite_score(candidate)  # type: ignore
                 
                 scored_candidates.append({
                     "candidate_id": candidate_id,
