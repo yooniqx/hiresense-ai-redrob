@@ -17,10 +17,11 @@ class DataLoader:
     def __init__(self, candidates_file: Path):
         self.candidates_file = candidates_file
         self.candidates = []
+        self.chunks_dir = candidates_file.parent / "chunks"
         
     def load_candidates(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
         """
-        Load candidates from JSON or JSONL file
+        Load candidates from JSON, JSONL, or chunked files
         
         Args:
             limit: Maximum number of candidates to load (None for all)
@@ -28,9 +29,19 @@ class DataLoader:
         Returns:
             List of candidate dictionaries
         """
+        candidates = []
+        
+        # Try loading from chunks first
+        if self.chunks_dir.exists():
+            logger.info(f"Loading candidates from chunks in {self.chunks_dir}")
+            candidates = self._load_from_chunks(limit)
+            if candidates:
+                self.candidates = candidates
+                return candidates
+        
+        # Fall back to single file
         logger.info(f"Loading candidates from {self.candidates_file}")
         
-        candidates = []
         try:
             with open(self.candidates_file, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -72,6 +83,57 @@ class DataLoader:
         except Exception as e:
             logger.error(f"Error loading candidates: {e}")
             raise
+    
+    def _load_from_chunks(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+        """
+        Load candidates from multiple chunk files
+        
+        Args:
+            limit: Maximum number of candidates to load (None for all)
+            
+        Returns:
+            List of candidate dictionaries
+        """
+        try:
+            # Read metadata
+            metadata_file = self.chunks_dir / "metadata.json"
+            if not metadata_file.exists():
+                logger.warning("Chunks metadata not found")
+                return []
+            
+            with open(metadata_file, 'r', encoding='utf-8') as f:
+                metadata = json.load(f)
+            
+            total_candidates = metadata.get("total_candidates", 0)
+            chunk_files = metadata.get("chunk_files", [])
+            
+            logger.info(f"Found {len(chunk_files)} chunk files with {total_candidates} total candidates")
+            
+            # Load all chunks
+            all_candidates = []
+            for chunk_file in chunk_files:
+                chunk_path = self.chunks_dir / chunk_file
+                
+                if not chunk_path.exists():
+                    logger.warning(f"Chunk file not found: {chunk_file}")
+                    continue
+                
+                with open(chunk_path, 'r', encoding='utf-8') as f:
+                    chunk_data = json.load(f)
+                    all_candidates.extend(chunk_data)
+                    logger.info(f"Loaded {len(chunk_data)} candidates from {chunk_file}")
+                
+                # Check limit
+                if limit and len(all_candidates) >= limit:
+                    all_candidates = all_candidates[:limit]
+                    break
+            
+            logger.info(f"Loaded {len(all_candidates)} total candidates from chunks")
+            return all_candidates
+            
+        except Exception as e:
+            logger.error(f"Error loading from chunks: {e}")
+            return []
     
     def preprocess_candidate(self, candidate: Dict[str, Any]) -> Dict[str, Any]:
         """
