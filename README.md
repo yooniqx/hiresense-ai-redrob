@@ -7,6 +7,15 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6.svg)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+## 🚀 Live Demo
+
+**Deployed Application:** [https://hiresense-ai-redrob.onrender.com](https://hiresense-ai-redrob.onrender.com)
+
+- ✅ Full-stack application with React frontend and Flask backend
+- ✅ 10,000 candidates loaded and ranked in real-time
+- ✅ Interactive dashboard, candidate search, and analytics
+- ✅ Top 100 candidates ranked by semantic AI scoring
+
 ## Team Information
 
 **Team Name:** Yooniq Forge
@@ -17,7 +26,9 @@
 - Debopriya Bose - Backend Development & AI Implementation
 - Kumar Saket (exios343@gmail.com) - Frontend Ideation and Development
 
-**Repository:** https://github.com/yooniqx/hiresense-ai-redrob
+**Repository:** [https://github.com/yooniqx/hiresense-ai-redrob](https://github.com/yooniqx/hiresense-ai-redrob)
+
+**Live Demo:** [https://hiresense-ai-redrob.onrender.com](https://hiresense-ai-redrob.onrender.com)
 
 ## Overview
 

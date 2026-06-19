@@ -22,14 +22,12 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/yooniqx/hiresense-ai-redrob"
 
-sandbox_link: "[TO BE ADDED - HuggingFace Space or Streamlit Cloud URL]"
-# Note: You need to deploy the ranker to one of these platforms:
-# - HuggingFace Spaces
-# - Streamlit Cloud
-# - Replit
-# - Google Colab
-# - Docker container
-# - Binder
+sandbox_link: "https://hiresense-ai-redrob.onrender.com"
+# Deployed on Render with full-stack application:
+# - Frontend: React + TypeScript + Tailwind CSS
+# - Backend: Python Flask API with semantic ranking engine
+# - Data: 10,000 candidates loaded from chunks, top 100 ranked
+# - Features: Dashboard, candidate search, rankings, analytics
 
 reproduce_command: "python generate_ranking.py"
 # This command produces output/ranked_candidates.csv from the candidates.jsonl file
