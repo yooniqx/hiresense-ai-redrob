@@ -107,14 +107,14 @@ def get_candidates():
         colors = ["#DC2626", "#F97316", "#FBBF24", "#EA580C", "#B91C1C", "#D97706"]
         
         for idx, c in enumerate(ranked_candidates):
-            profile = c["candidate"]["profile"]
-            score_details = c["score_details"]
+            profile = c.get("candidate", {}).get("profile", {})
+            score_details = c.get("score_details", {})
             
             # Calculate component scores as percentages
-            skills_match = int(score_details["skills"]["score"] * 100)
-            experience_match = int(score_details["experience"]["score"] * 100)
-            behavioral_fit = int(score_details["signals"]["score"] * 100)
-            overall_score = int(c["score"] * 100)
+            skills_match = int(score_details.get("skills", {}).get("score", 0) * 100)
+            experience_match = int(score_details.get("experience", {}).get("score", 0) * 100)
+            behavioral_fit = int(score_details.get("signals", {}).get("score", 0) * 100)
+            overall_score = int(c.get("score", 0) * 100)
             
             # Determine recommendation
             if overall_score >= 85:
@@ -126,12 +126,14 @@ def get_candidates():
             else:
                 recommendation = "Pass"
             
-            # Extract skills
-            skills_list = [skill["name"] for skill in c["candidate"]["skills"][:10]]
+            # Extract skills safely
+            candidate_skills = c.get("candidate", {}).get("skills", [])
+            skills_list = [skill.get("name", skill) if isinstance(skill, dict) else str(skill) for skill in candidate_skills[:10]]
             
             # Extract experience
             experience_list = []
-            for job in c["candidate"]["career_history"][:3]:
+            career_history = c.get("candidate", {}).get("career_history", [])
+            for job in career_history[:3]:
                 experience_list.append({
                     "company": job.get("company", "Unknown"),
                     "role": job.get("title", "Unknown"),
@@ -141,7 +143,8 @@ def get_candidates():
             
             # Extract education
             education_list = []
-            for edu in c["candidate"]["education"][:2]:
+            education = c.get("candidate", {}).get("education", [])
+            for edu in education[:2]:
                 education_list.append({
                     "school": edu.get("institution", "Unknown"),
                     "degree": edu.get("degree", "Unknown"),
@@ -150,7 +153,7 @@ def get_candidates():
             
             # Extract behavioral signals
             behavioral = []
-            signals = c["candidate"].get("redrob_signals", {})
+            signals = c.get("candidate", {}).get("redrob_signals", {})
             if signals.get("github_activity"):
                 behavioral.append("Active GitHub contributor")
             if signals.get("stackoverflow_reputation", 0) > 1000:
@@ -158,12 +161,13 @@ def get_candidates():
             if signals.get("blog_posts"):
                 behavioral.append("Technical writer")
             
+            reasoning = c.get("reasoning", "No reasoning available")
             candidate_data = {
-                "id": c["candidate_id"],
+                "id": c.get("candidate_id", f"candidate_{idx}"),
                 "name": profile.get("anonymized_name", "Unknown"),
                 "title": profile.get("current_title", "Unknown"),
                 "location": profile.get("location", "Unknown"),
-                "email": profile.get("email", f"{c['candidate_id']}@example.com"),
+                "email": profile.get("email", f"{c.get('candidate_id', idx)}@example.com"),
                 "avatarColor": colors[idx % len(colors)],
                 "score": overall_score,
                 "skillsMatch": skills_match,
@@ -175,9 +179,9 @@ def get_candidates():
                 "education": education_list,
                 "experience": experience_list,
                 "behavioral": behavioral,
-                "strengths": c["reasoning"].split(". ")[:2],
+                "strengths": reasoning.split(". ")[:2] if reasoning else [],
                 "gaps": [],
-                "explanation": c["reasoning"]
+                "explanation": reasoning
             }
             
             candidates_list.append(candidate_data)
@@ -196,7 +200,7 @@ def get_candidate_by_id(candidate_id):
         # Find candidate
         candidate_data = None
         for c in ranked_candidates:
-            if c["candidate_id"] == candidate_id:
+            if c.get("candidate_id") == candidate_id:
                 candidate_data = c
                 break
         
@@ -205,13 +209,13 @@ def get_candidate_by_id(candidate_id):
         
         # Transform to frontend format (same as above)
         colors = ["#DC2626", "#F97316", "#FBBF24", "#EA580C", "#B91C1C", "#D97706"]
-        profile = candidate_data["candidate"]["profile"]
-        score_details = candidate_data["score_details"]
+        profile = candidate_data.get("candidate", {}).get("profile", {})
+        score_details = candidate_data.get("score_details", {})
         
-        skills_match = int(score_details["skills"]["score"] * 100)
-        experience_match = int(score_details["experience"]["score"] * 100)
-        behavioral_fit = int(score_details["signals"]["score"] * 100)
-        overall_score = int(candidate_data["score"] * 100)
+        skills_match = int(score_details.get("skills", {}).get("score", 0) * 100)
+        experience_match = int(score_details.get("experience", {}).get("score", 0) * 100)
+        behavioral_fit = int(score_details.get("signals", {}).get("score", 0) * 100)
+        overall_score = int(candidate_data.get("score", 0) * 100)
         
         if overall_score >= 85:
             recommendation = "Strong Hire"
@@ -222,10 +226,12 @@ def get_candidate_by_id(candidate_id):
         else:
             recommendation = "Pass"
         
-        skills_list = [skill["name"] for skill in candidate_data["candidate"]["skills"][:10]]
+        candidate_skills = candidate_data.get("candidate", {}).get("skills", [])
+        skills_list = [skill.get("name", skill) if isinstance(skill, dict) else str(skill) for skill in candidate_skills[:10]]
         
         experience_list = []
-        for job in candidate_data["candidate"]["career_history"][:3]:
+        career_history = candidate_data.get("candidate", {}).get("career_history", [])
+        for job in career_history[:3]:
             experience_list.append({
                 "company": job.get("company", "Unknown"),
                 "role": job.get("title", "Unknown"),
@@ -234,7 +240,8 @@ def get_candidate_by_id(candidate_id):
             })
         
         education_list = []
-        for edu in candidate_data["candidate"]["education"][:2]:
+        education = candidate_data.get("candidate", {}).get("education", [])
+        for edu in education[:2]:
             education_list.append({
                 "school": edu.get("institution", "Unknown"),
                 "degree": edu.get("degree", "Unknown"),
@@ -242,7 +249,7 @@ def get_candidate_by_id(candidate_id):
             })
         
         behavioral = []
-        signals = candidate_data["candidate"].get("redrob_signals", {})
+        signals = candidate_data.get("candidate", {}).get("redrob_signals", {})
         if signals.get("github_activity"):
             behavioral.append("Active GitHub contributor")
         if signals.get("stackoverflow_reputation", 0) > 1000:
@@ -250,12 +257,13 @@ def get_candidate_by_id(candidate_id):
         if signals.get("blog_posts"):
             behavioral.append("Technical writer")
         
+        reasoning = candidate_data.get("reasoning", "No reasoning available")
         result = {
-            "id": candidate_data["candidate_id"],
+            "id": candidate_data.get("candidate_id", "unknown"),
             "name": profile.get("anonymized_name", "Unknown"),
             "title": profile.get("current_title", "Unknown"),
             "location": profile.get("location", "Unknown"),
-            "email": profile.get("email", f"{candidate_data['candidate_id']}@example.com"),
+            "email": profile.get("email", f"{candidate_data.get('candidate_id', 'unknown')}@example.com"),
             "avatarColor": colors[0],
             "score": overall_score,
             "skillsMatch": skills_match,
@@ -267,9 +275,9 @@ def get_candidate_by_id(candidate_id):
             "education": education_list,
             "experience": experience_list,
             "behavioral": behavioral,
-            "strengths": candidate_data["reasoning"].split(". ")[:2],
+            "strengths": reasoning.split(". ")[:2] if reasoning else [],
             "gaps": [],
-            "explanation": candidate_data["reasoning"]
+            "explanation": reasoning
         }
         
         return jsonify(result)
