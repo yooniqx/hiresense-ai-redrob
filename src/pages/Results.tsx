@@ -1,7 +1,7 @@
 ﻿import { Link } from "react-router-dom";
-import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader, ScoreBadge, PrimaryButton } from "@/components/ui-kit";
-import { api } from "@/lib/api";
+import { AppLayout } from "../components/AppLayout";
+import { SectionHeader, ScoreBadge, PrimaryButton } from "../components/ui-kit";
+import { api } from "../lib/api";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Trophy, Medal, Award, Sparkles } from "lucide-react";
 

@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader, PrimaryButton, GhostButton, Tag } from "@/components/ui-kit";
+import { AppLayout } from "../components/AppLayout";
+import { SectionHeader, PrimaryButton, GhostButton, Tag } from "../components/ui-kit";
 import { UploadCloud, FileText, CheckCircle2, Loader2, Clock, Trash2, Users } from "lucide-react";
-import { uploads } from "@/lib/dummy-data";
+import { uploads } from "../lib/dummy-data";
 import { useState } from "react";
 
 export const Route = createFileRoute("/candidates/")({

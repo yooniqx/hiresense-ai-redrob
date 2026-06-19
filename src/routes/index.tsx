@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AppLayout } from "@/components/AppLayout";
-import { StatCard, ScoreBadge, SectionHeader, PrimaryButton, GhostButton } from "@/components/ui-kit";
+import { AppLayout } from "../components/AppLayout";
+import { StatCard, ScoreBadge, SectionHeader, PrimaryButton, GhostButton } from "../components/ui-kit";
 import { Users, CheckCircle2, Gauge, Crown, Upload, FileText, Trophy, ArrowUpRight, Sparkles } from "lucide-react";
-import { api } from "@/lib/api";
+import { api } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/")({

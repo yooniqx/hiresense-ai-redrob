@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader, PrimaryButton, GhostButton, Tag } from "@/components/ui-kit";
+import { AppLayout } from "../components/AppLayout";
+import { SectionHeader, PrimaryButton, GhostButton, Tag } from "../components/ui-kit";
 import { ClipboardPaste, Sparkles, FileText, Briefcase, Brain, Activity } from "lucide-react";
-import { sampleJD } from "@/lib/dummy-data";
+import { sampleJD } from "../lib/dummy-data";
 import { useState } from "react";
 
 export const Route = createFileRoute("/job-description")({

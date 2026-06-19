@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { api } from "@/lib/api";
+import { api } from "../lib/api";
 
 interface Message {
   role: "user" | "assistant";

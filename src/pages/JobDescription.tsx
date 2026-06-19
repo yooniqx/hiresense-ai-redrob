@@ -1,6 +1,6 @@
-﻿import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader } from "@/components/ui-kit";
-import { api } from "@/lib/api";
+﻿import { AppLayout } from "../components/AppLayout";
+import { SectionHeader } from "../components/ui-kit";
+import { api } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { Briefcase, MapPin, Clock, CheckCircle2, Award, Gift } from "lucide-react";
 

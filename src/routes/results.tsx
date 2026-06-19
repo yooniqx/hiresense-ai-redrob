@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader, ScoreBadge, ScoreBar, GhostButton, Tag } from "@/components/ui-kit";
+import { AppLayout } from "../components/AppLayout";
+import { SectionHeader, ScoreBadge, ScoreBar, GhostButton, Tag } from "../components/ui-kit";
 import { Search, ArrowUpDown, Download, Eye } from "lucide-react";
-import { fetchCandidates } from "@/lib/api";
+import { fetchCandidates } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 

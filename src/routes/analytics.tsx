@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader, Tag } from "@/components/ui-kit";
+import { AppLayout } from "../components/AppLayout";
+import { SectionHeader, Tag } from "../components/ui-kit";
 import { TrendingUp, Users, Filter, Target, Sparkles, Award, BarChart3, PieChart } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { api, Analytics } from "@/lib/api";
+import { api, Analytics } from "../lib/api";
 
 export const Route = createFileRoute("/analytics")({
   head: () => ({ meta: [{ title: "Analytics — HireSense AI" }] }),

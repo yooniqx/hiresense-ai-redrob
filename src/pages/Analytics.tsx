@@ -1,6 +1,6 @@
-﻿import { AppLayout } from "@/components/AppLayout";
-import { SectionHeader, Tag } from "@/components/ui-kit";
-import { api, Analytics } from "@/lib/api";
+﻿import { AppLayout } from "../components/AppLayout";
+import { SectionHeader, Tag } from "../components/ui-kit";
+import { api, Analytics } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { TrendingUp, Users, Filter, Target, Sparkles, Award, BarChart3, PieChart } from "lucide-react";
 

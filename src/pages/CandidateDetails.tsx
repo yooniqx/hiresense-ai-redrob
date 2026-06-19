@@ -1,7 +1,7 @@
 ﻿import { useParams, Link } from "react-router-dom";
-import { AppLayout } from "@/components/AppLayout";
-import { ScoreBadge, GhostButton } from "@/components/ui-kit";
-import { api } from "@/lib/api";
+import { AppLayout } from "../components/AppLayout";
+import { ScoreBadge, GhostButton } from "../components/ui-kit";
+import { api } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { Mail, Phone, MapPin, Briefcase, Calendar, Award, ExternalLink, ArrowLeft, GraduationCap, Link2 } from "lucide-react";
 
