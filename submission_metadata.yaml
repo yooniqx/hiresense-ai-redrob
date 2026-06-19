@@ -53,15 +53,27 @@ compute:
 # AI tools declaration
 # ============================================================================
 ai_tools_used:
-  - "Claude (via Roo-Cline)"
+  - "IBM Bob (AI coding assistant)"
+  - "ChatGPT"
+  - "Lovable"
   - "GitHub Copilot"
 
 ai_usage_summary: |
-  Used Claude via Roo-Cline for:
+  Used IBM Bob for:
   - Code architecture and design discussions
   - Implementation of semantic scoring algorithms
   - Code review and optimization
   - Documentation generation
+  - Backend and frontend development
+  
+  Used ChatGPT for:
+  - Prompt shortening and structuring
+  - Project idea clarification and communication
+  - Requirements analysis
+  
+  Used Lovable for:
+  - Initial UI/UX prototype design
+  - Frontend screen mockups
   
   Used GitHub Copilot for:
   - Code autocomplete and suggestions
