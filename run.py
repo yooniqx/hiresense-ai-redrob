@@ -46,4 +46,3 @@ if __name__ == '__main__':
         print(f"\nError: {e}")
         sys.exit(1)
 
-# Made with Bob

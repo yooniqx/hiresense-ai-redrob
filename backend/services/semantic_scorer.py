@@ -370,5 +370,3 @@ class SemanticCandidateScorer:
         
         return composite_score, all_details
 
-
-# Made with Bob

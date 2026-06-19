@@ -312,4 +312,3 @@ class CandidateScorer:
         
         return composite, all_details
 
-# Made with Bob

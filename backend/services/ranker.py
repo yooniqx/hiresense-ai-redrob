@@ -257,4 +257,3 @@ class CandidateRanker:
             "top_10_avg": sum(scores[:10]) / 10 if len(scores) >= 10 else 0
         }
 
-# Made with Bob

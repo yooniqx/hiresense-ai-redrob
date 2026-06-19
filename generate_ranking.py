@@ -57,5 +57,3 @@ if __name__ == '__main__':
     print(f"Top 10 average: {stats.get('top_10_avg', 0):.4f}")
     print(f"Score range: {stats.get('min_score', 0):.4f} - {stats.get('max_score', 0):.4f}")
     print("\nValidating submission format...")
-
-# Made with Bob

@@ -185,4 +185,3 @@ class HoneypotDetector:
         logger.info(f"Detected {len(honeypots)} honeypot candidates")
         return honeypots
 
-# Made with Bob

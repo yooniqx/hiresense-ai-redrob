@@ -69,4 +69,3 @@ FLASK_DEBUG = True
 # Create output directory if it doesn't exist
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# Made with Bob
