@@ -292,22 +292,32 @@ def get_stats():
     """Get dashboard statistics"""
     try:
         if not ranked_candidates:
-            return jsonify({"error": "System not initialized"}), 500
+            return jsonify({
+                "totalCandidates": 0,
+                "rankedCandidates": 0,
+                "averageMatch": 0,
+                "topCandidate": 0
+            })
         
-        scores = [int(c["score"] * 100) for c in ranked_candidates]
+        scores = [int(c.get("score", 0) * 100) for c in ranked_candidates]
         
         stats = {
             "totalCandidates": len(all_candidates),
             "rankedCandidates": len(ranked_candidates),
-            "averageMatch": int(sum(scores) / len(scores)),
-            "topCandidate": max(scores)
+            "averageMatch": int(sum(scores) / len(scores)) if scores else 0,
+            "topCandidate": max(scores) if scores else 0
         }
         
         return jsonify(stats)
     
     except Exception as e:
         logger.error(f"Error in stats endpoint: {e}")
-        return jsonify({"error": str(e)}), 500
+        return jsonify({
+            "totalCandidates": 0,
+            "rankedCandidates": 0,
+            "averageMatch": 0,
+            "topCandidate": 0
+        })
 
 
 @app.route('/api/activity')
@@ -397,9 +407,6 @@ def trigger_rank():
 def get_analytics():
     """Get analytics data in frontend format"""
     try:
-        if not ranked_candidates:
-            return jsonify({"error": "System not initialized"}), 500
-        
         # Score distribution buckets
         score_buckets = [
             {"range": "90-100", "label": "Top tier", "count": 0},
@@ -409,25 +416,28 @@ def get_analytics():
             {"range": "<60", "label": "Below bar", "count": 0}
         ]
         
-        for c in ranked_candidates:
-            score = int(c["score"] * 100)
-            if score >= 90:
-                score_buckets[0]["count"] += 1
-            elif score >= 80:
-                score_buckets[1]["count"] += 1
-            elif score >= 70:
-                score_buckets[2]["count"] += 1
-            elif score >= 60:
-                score_buckets[3]["count"] += 1
-            else:
-                score_buckets[4]["count"] += 1
+        if ranked_candidates:
+            for c in ranked_candidates:
+                score = int(c.get("score", 0) * 100)
+                if score >= 90:
+                    score_buckets[0]["count"] += 1
+                elif score >= 80:
+                    score_buckets[1]["count"] += 1
+                elif score >= 70:
+                    score_buckets[2]["count"] += 1
+                elif score >= 60:
+                    score_buckets[3]["count"] += 1
+                else:
+                    score_buckets[4]["count"] += 1
         
         # Top skills
         skills_count = {}
-        for candidate in ranked_candidates[:100]:
-            for skill in candidate["candidate"]["skills"]:
-                skill_name = skill["name"]
-                skills_count[skill_name] = skills_count.get(skill_name, 0) + 1
+        if ranked_candidates:
+            for candidate in ranked_candidates[:100]:
+                candidate_skills = candidate.get("candidate", {}).get("skills", [])
+                for skill in candidate_skills:
+                    skill_name = skill.get("name", skill) if isinstance(skill, dict) else str(skill)
+                    skills_count[skill_name] = skills_count.get(skill_name, 0) + 1
         
         top_skills = [
             {"name": name, "count": count}
