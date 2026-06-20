@@ -16,6 +16,14 @@
 - ✅ Interactive dashboard, candidate search, and analytics
 - ✅ Top 100 candidates ranked by semantic AI scoring
 
+### 📸 Application Preview
+
+**Dashboard Overview**
+![Dashboard](asset/dashboard.jpeg)
+
+**Candidate Rankings**
+![Rankings](asset/rankings.jpeg)
+
 ## Team Information
 
 **Team Name:** Yooniq Forge
