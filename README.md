@@ -518,7 +518,7 @@ This project was developed with assistance from:
 **Team Yooniq Forge**
 - Primary Contact: Debopriya Bose (dbose0906@gmail.com)
 - Repository: https://github.com/yooniqx/hiresense-ai-redrob
-- For questions or support: Open an issue on GitHub
+- For questions or support: Open an issue on GitHub 
 
 ---
 
